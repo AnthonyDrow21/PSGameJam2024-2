@@ -11,5 +11,10 @@ config_version=5
 [application]
 
 config/name="Alchemy"
+run/main_scene="res://Menus/MainMenu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+GameSettings="*res://Globals/GameSettings.gd"

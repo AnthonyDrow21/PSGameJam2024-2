@@ -1,0 +1,97 @@
+[gd_scene load_steps=9 format=3 uid="uid://dk3r020dii3t7"]
+
+[ext_resource type="Script" path="res://Menus/OptionsMenu.gd" id="1_coi67"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p6hlv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6a181"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2mv1b"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_om52p"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vby2u"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ss5np"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_83idq"]
+
+[node name="OptionsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_coi67")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.647059, 0.596078, 0.411765, 0.588235)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -68.0
+offset_top = -35.0
+offset_right = 68.0
+offset_bottom = 102.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="Label" type="Label" parent="ColorRect/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.270588, 0.247059, 0.105882, 1)
+theme_override_font_sizes/font_size = 28
+text = "Difficulty
+"
+
+[node name="difficultyButton" type="OptionButton" parent="ColorRect/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.898039, 0.870588, 0.701961, 1)
+theme_override_font_sizes/font_size = 28
+theme_override_styles/focus = SubResource("StyleBoxEmpty_p6hlv")
+item_count = 3
+selected = 1
+popup/item_0/text = "Easy"
+popup/item_0/id = 0
+popup/item_1/text = "Normal"
+popup/item_1/id = 1
+popup/item_2/text = "Hard"
+popup/item_2/id = 2
+
+[node name="HSeparator" type="HSeparator" parent="ColorRect/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_6a181")
+
+[node name="backButton" type="Button" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.898039, 0.870588, 0.701961, 1)
+theme_override_colors/font_pressed_color = Color(0.270588, 0.247059, 0.105882, 1)
+theme_override_colors/font_hover_color = Color(0.270588, 0.247059, 0.105882, 1)
+theme_override_colors/font_focus_color = Color(0.270588, 0.247059, 0.105882, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.270588, 0.247059, 0.105882, 1)
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxEmpty_2mv1b")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_om52p")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_vby2u")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ss5np")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_83idq")
+text = "Done"
+
+[connection signal="item_selected" from="ColorRect/VBoxContainer/HBoxContainer/difficultyButton" to="." method="_on_difficulty_button_item_selected"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/backButton" to="." method="_on_back_button_pressed"]

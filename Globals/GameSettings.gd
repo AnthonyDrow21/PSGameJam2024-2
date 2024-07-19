@@ -1,3 +1,4 @@
+# Global game settings set through the Options Menu
 extends Node
 
 enum DIFFICULTY_LEVEL {Easy, Normal, Hard}

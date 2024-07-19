@@ -31,17 +31,24 @@ func _physics_process(delta):
 			return
 	
 	# Get the input direction and handle the movement/deceleration.
-	var direction = Input.get_axis("ui_left", "ui_right")
-	if direction:
-		velocity.x = direction * SPEED
+	var directionX = Input.get_axis("ui_left", "ui_right")
+	var directionY = Input.get_axis("ui_up", "ui_down")
+	
+	if directionX:
+		velocity.x = directionX * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+	
+	if directionY:
+		velocity.y = directionY * SPEED
+	else:
+		velocity.y = move_toward(velocity.y, 0, SPEED)
 
 	if abs(velocity.x) > 0:
 		# The sprite is moving so we need to update the animation frames
 		# and flip them horizontally to match the direction of travel.
 		current_animation = RUNNING
-		_animated_sprite.flip_h = 1 if direction < 0 else 0
+		_animated_sprite.flip_h = 1 if directionX < 0 else 0
 	else:
 		current_animation = IDLE
 

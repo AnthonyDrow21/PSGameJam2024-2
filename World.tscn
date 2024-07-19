@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://uc81tvqarkao"]
+[gd_scene load_steps=3 format=3 uid="uid://uc81tvqarkao"]
 
+[ext_resource type="PackedScene" uid="uid://bq6ah1g3oa0ma" path="res://Player.tscn" id="1_ll608"]
 [ext_resource type="Script" path="res://World.gd" id="1_tvj70"]
 
 [node name="World" type="Control"]
@@ -20,22 +21,5 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.898039, 0.870588, 0.701961, 1)
 
-[node name="Label" type="Label" parent="ColorRect"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -0.5
-offset_top = -11.5
-offset_right = 0.5
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 22
-text = "Hi, hello! You have made it to the main game scene. I have no idea how to set this up yet, so GLHF. :)
-
-Sorry you can't get to the main menu again. Didn't feel like adding a back button yet :("
-horizontal_alignment = 1
+[node name="Player" parent="." instance=ExtResource("1_ll608")]
+position = Vector2(567, 333)

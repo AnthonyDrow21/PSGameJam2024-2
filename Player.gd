@@ -12,6 +12,16 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var animations = {IDLE: "idle", RUNNING: "running", CHARGE: "charge", DAMAGE: "damage"}
 var current_animation = IDLE;
 
+func player_pickup_item():
+	# Pick up an item
+	if $PickupZone.items_in_range.size() > 0:
+		var pickup_item = $PickupZone.items_in_range.values()[0]
+		pickup_item.pick_up_item(self)
+		$PickupZone.items_in_range.erase(pickup_item)
+		
+		# change the animation (TEMPORARY, play a sound here or something!)
+		current_animation = CHARGE
+	
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	_animated_sprite.play(animations.get(current_animation))
@@ -21,6 +31,8 @@ func _input(event):
 		current_animation = CHARGE
 	elif event.is_action_pressed("ui_damage"):
 		current_animation = DAMAGE
+	elif event.is_action_pressed("ui_select"):
+		player_pickup_item()
 		
 	_animated_sprite.play(animations.get(current_animation))
 

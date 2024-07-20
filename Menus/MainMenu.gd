@@ -12,8 +12,7 @@ func _process(delta):
 
 
 func _on_start_button_pressed():
-	var gameWorld = load("res://World.tscn").instantiate()
-	get_tree().current_scene.add_child(gameWorld)
+	get_tree().change_scene_to_file("res://World.tscn")
 
 func on_options_menu_exiting():
 	optionsMenuActive = false

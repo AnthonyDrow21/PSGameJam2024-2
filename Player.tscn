@@ -228,6 +228,7 @@ script = SubResource("GDScript_dv7ri")
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 light_mask = 2
 visibility_layer = 2
+z_index = 1
 script = ExtResource("1_sjb5b")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]

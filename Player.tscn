@@ -255,6 +255,7 @@ light_mask = 2
 visibility_layer = 2
 position = Vector2(-1, 3)
 scale = Vector2(1.89062, 1.99219)
+color = Color(0.999998, 0.998362, 0.732826, 1)
 range_item_cull_mask = 2
 texture = SubResource("GradientTexture2D_jc807")
 height = 20.0

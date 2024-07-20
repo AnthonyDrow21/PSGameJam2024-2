@@ -13,7 +13,9 @@ func _process(delta):
 		if not paused:
 			var pauseMenu = load("res://Menus/PauseMenu.tscn").instantiate()
 			pauseMenu.toggle_pause.connect(on_pause_toggled)
-			get_tree().current_scene.add_child(pauseMenu)
+			
+			# The CanvasLayer is uneffected by the game lighting models.
+			get_tree().current_scene.get_node("CanvasLayer").add_child(pauseMenu)
 
 func on_pause_toggled(is_paused):
 	paused = is_paused

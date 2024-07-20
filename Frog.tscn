@@ -45,9 +45,13 @@ size = Vector2(19, 10)
 [node name="Frog" type="Node2D"]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+light_mask = 2
+visibility_layer = 2
 script = ExtResource("1_vpanl")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+light_mask = 2
+visibility_layer = 2
 sprite_frames = SubResource("SpriteFrames_yh4ha")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]

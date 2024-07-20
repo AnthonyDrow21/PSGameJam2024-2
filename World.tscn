@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://cd4vunmawu2he" path="res://Frog.tscn" id="3_65jqr"]
 
 [node name="World" type="Control"]
+light_mask = 3
+visibility_layer = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,6 +16,8 @@ grow_vertical = 2
 script = ExtResource("1_tvj70")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+light_mask = 2
+visibility_layer = 2
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -24,9 +28,15 @@ grow_vertical = 2
 [node name="Player" parent="." instance=ExtResource("1_ll608")]
 position = Vector2(567, 333)
 
-[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
-color = Color(0.117647, 0.117647, 0.117647, 1)
-blend_mode = 2
-
 [node name="Frog" parent="." instance=ExtResource("3_65jqr")]
+light_mask = 2
+visibility_layer = 2
 position = Vector2(107, 141)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+modulate = Color(0.194349, 0.194349, 0.194349, 1)
+light_mask = 2
+visibility_layer = 2
+color = Color(0.196078, 0.196078, 0.196078, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]

@@ -14,16 +14,12 @@ func _process(delta):
 
 
 func _on_resume_button_pressed():
-	# exiting menu
-	get_parent().remove_child(get_node("."))
 	emit_signal("toggle_pause", false)
 
 
 func _on_restart_button_pressed():
-	# exiting menu and restarting game
 	emit_signal("restart_requested")
 	emit_signal("toggle_pause", false)
-	get_parent().remove_child(get_node("."))
 
 
 func _on_exit_button_pressed():

@@ -13,3 +13,4 @@ func with_data(aLabel, aIconPath, aDescription):
 	$iconTextureRect.texture = load(aIconPath)
 	label = aLabel
 	description = aDescription
+	return self

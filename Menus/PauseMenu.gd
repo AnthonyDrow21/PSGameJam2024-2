@@ -28,4 +28,5 @@ func _on_restart_button_pressed():
 
 func _on_exit_button_pressed():
 	# reset back to main menu
+	emit_signal("toggle_pause", false)
 	get_tree().change_scene_to_file("res://Menus/MainMenu.tscn")

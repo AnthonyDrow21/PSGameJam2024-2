@@ -17,6 +17,8 @@ func _process(delta):
 
 func on_pause_toggled(is_paused):
 	paused = is_paused
+	get_tree().paused = paused
+	print(paused)
 	
 func on_restart():
 	print("UNIMPLEMNTED: User requested game restart")

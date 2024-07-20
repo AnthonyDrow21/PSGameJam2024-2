@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://uc81tvqarkao"]
 
-[ext_resource type="PackedScene" path="res://Player.tscn" id="1_ll608"]
+[ext_resource type="PackedScene" uid="uid://djq3261fo0ym0" path="res://Player.tscn" id="1_ll608"]
 [ext_resource type="Script" path="res://World.gd" id="1_tvj70"]
 
 [node name="World" type="Control"]

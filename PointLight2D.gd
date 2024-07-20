@@ -3,6 +3,7 @@ extends PointLight2D
 # TODO We can use this signal to notify the rest of the game
 # about how much time is left, e.g. music change?
 signal light_dying(time_left : float)
+signal game_over(didWin : bool)
 
 var max_time = 0.0
 var _timer : Timer
@@ -27,9 +28,12 @@ func _process(delta):
 	# Scale the size of the light source based on the remaining time
 	texture_scale = (_timer.time_left / max_time)
 
+
 func _on_timer_timeout():
+	print("game_over")
+	emit_signal("game_over", false)
 	queue_free()
-	# Need to call something to end the game
+
 
 func update_remaining_time(delta):
 	var time_left = _timer.time_left
@@ -38,7 +42,8 @@ func update_remaining_time(delta):
 	var new_time = time_left + delta
 	if new_time > max_time:
 		new_time = max_time
-	elif new_time < 0:
-		new_time = 0
-
-	_timer.start(new_time)
+	
+	if new_time > 0:
+		_timer.start(new_time)
+	else:
+		_on_timer_timeout()

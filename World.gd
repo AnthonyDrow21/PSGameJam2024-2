@@ -17,6 +17,7 @@ func add_menu(menu):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$Player/CharacterBody2D/PointLight2D.connect("game_over", on_game_over)
 	test_spawn_items()
 	add_menu(INVENTORY_MENU)
 	INVENTORY_MENU.hide()
@@ -59,6 +60,10 @@ func on_pause_toggled(is_paused):
 	
 func on_restart():
 	print("UNIMPLEMNTED: User requested game restart")
+	
+func on_game_over(didWin):
+	var gameOverMenu = load("res://Menus/GameOverMenu.tscn").instantiate()
+	get_tree().current_scene.get_node("CanvasLayer").add_child(gameOverMenu)
 	
 # test spawning in some items 
 func test_spawn_items():

@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://uc81tvqarkao"]
+[gd_scene load_steps=4 format=3 uid="uid://uc81tvqarkao"]
 
-[ext_resource type="PackedScene" uid="uid://djq3261fo0ym0" path="res://Player.tscn" id="1_ll608"]
+[ext_resource type="PackedScene" uid="uid://bq6ah1g3oa0ma" path="res://Player.tscn" id="1_ll608"]
 [ext_resource type="Script" path="res://World.gd" id="1_tvj70"]
+[ext_resource type="PackedScene" uid="uid://cd4vunmawu2he" path="res://Frog.tscn" id="3_65jqr"]
 
 [node name="World" type="Control"]
 layout_mode = 3
@@ -19,7 +20,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.898039, 0.870588, 0.701961, 1)
 
 [node name="Player" parent="." instance=ExtResource("1_ll608")]
 position = Vector2(567, 333)
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+color = Color(0.117647, 0.117647, 0.117647, 1)
+blend_mode = 2
+
+[node name="Frog" parent="." instance=ExtResource("3_65jqr")]
+position = Vector2(107, 141)

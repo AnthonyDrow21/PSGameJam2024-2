@@ -7,6 +7,8 @@ const CHARGE = 2
 const DAMAGE = 3
 
 @onready var _animated_sprite = $AnimatedSprite2D
+@onready var _point_light_2d = $PointLight2D
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var animations = {IDLE: "idle", RUNNING: "running", CHARGE: "charge", DAMAGE: "damage"}
@@ -18,9 +20,20 @@ func player_pickup_item():
 		var pickup_item = $PickupZone.items_in_range.values()[0]
 		pickup_item.pick_up_item(self)
 		$PickupZone.items_in_range.erase(pickup_item)
-		
-		# change the animation (TEMPORARY, play a sound here or something!)
-		current_animation = CHARGE
+
+		print(pickup_item.label)
+		# TODO Update the items so they can be associated with increasing
+		# or decreasing the remaining time.
+		var time_delta = 0.0
+		if pickup_item.label == "potion_green":
+			time_delta = +5.0
+			# change the animation (TEMPORARY, play a sound here or something!)
+			current_animation = CHARGE
+		elif pickup_item.label == "potion_black":
+			time_delta = -5.0
+			# change the animation (TEMPORARY, play a sound here or something!)
+			current_animation = DAMAGE
+		$PointLight2D.update_remaining_time(time_delta)
 	
 # Called when the node enters the scene tree for the first time.
 func _ready():

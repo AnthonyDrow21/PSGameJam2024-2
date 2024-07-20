@@ -1,7 +1,6 @@
 extends Control
 
 var ItemDrop = preload("res://Elements/ItemDrop.tscn")
-
 var paused = false
 
 # Called when the node enters the scene tree for the first time.
@@ -10,7 +9,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if( Input.is_action_pressed("ui_cancel") ):
+	if Input.is_action_pressed("ui_cancel"):
 		if not paused:
 			var pauseMenu = load("res://Menus/PauseMenu.tscn").instantiate()
 			pauseMenu.toggle_pause.connect(on_pause_toggled)
@@ -19,7 +18,7 @@ func _process(delta):
 func on_pause_toggled(is_paused):
 	paused = is_paused
 	get_tree().paused = paused
-	print(paused)
+	print("Paused: ", paused)
 	
 func on_restart():
 	print("UNIMPLEMNTED: User requested game restart")
@@ -43,7 +42,7 @@ func test_spawn_items():
 	item3.position.x = $Player.position.x - offset
 	item3.position.y = $Player.position.y
 	
-	var item4 = ItemDrop.instantiate().with_data("potion_black", "green")
+	var item4 = ItemDrop.instantiate().with_data("potion_black", "black")
 	get_tree().current_scene.add_child(item4)
 	item4.position.x = $Player.position.x
 	item4.position.y = $Player.position.y - offset

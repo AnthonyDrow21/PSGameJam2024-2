@@ -7,6 +7,7 @@ const max_speed = 500
 
 var label: String
 var animationName: String
+var itemType: Types.ItemType
 
 var player = null
 var being_picked_up = false
@@ -25,9 +26,10 @@ func _physics_process(delta):
 	move_and_slide()
 
 # Call after instantiate
-func with_data(aLabel, aAnimationName):
+func with_data(aLabel, aAnimationName, aItemType):
 	animationName = aAnimationName	
 	label = aLabel
+	itemType = aItemType
 	return self
 
 func pick_up_item(body):

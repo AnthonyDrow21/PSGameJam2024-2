@@ -27,22 +27,23 @@ func on_restart():
 func test_spawn_items():
 	const offset = 200
 	# we could be more clever about this, but just testing for now
-	var item1 = ItemDrop.instantiate().with_data("potion_green", "green")
+	var item1 = ItemDrop.instantiate().with_data("potion_green", "green", Types.ItemType.AddTime)
 	get_tree().current_scene.add_child(item1)
 	item1.position.x = $Player.position.x + offset
 	item1.position.y = $Player.position.y
 	
-	var item2 = ItemDrop.instantiate().with_data("potion_black", "black")
+	var item2 = ItemDrop.instantiate().with_data("potion_black", "black", Types.ItemType.RemoveTime)
 	get_tree().current_scene.add_child(item2)
 	item2.position.x = $Player.position.x
 	item2.position.y = $Player.position.y + offset
 	
-	var item3 = ItemDrop.instantiate().with_data("potion_green", "green")
+	var item3 = ItemDrop.instantiate().with_data("potion_green", "green", Types.ItemType.AddTime)
 	get_tree().current_scene.add_child(item3)
 	item3.position.x = $Player.position.x - offset
 	item3.position.y = $Player.position.y
 	
-	var item4 = ItemDrop.instantiate().with_data("potion_black", "black")
+	var item4 = ItemDrop.instantiate().with_data("potion_black", "black", Types.ItemType.RemoveTime)
+
 	get_tree().current_scene.add_child(item4)
 	item4.position.x = $Player.position.x
 	item4.position.y = $Player.position.y - offset

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b0d4d7i6v3smv"]
+[gd_scene load_steps=7 format=3 uid="uid://cddtdnf87j4oh"]
 
 [ext_resource type="Script" path="res://Menus/GameOverMenu.gd" id="1_wtbfw"]
 
@@ -13,6 +13,7 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mmp4y"]
 
 [node name="GameOverMenu" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -26,18 +27,6 @@ size_flags_vertical = 4
 script = ExtResource("1_wtbfw")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-process_mode = 3
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.588235)
-
-[node name="ColorRect" type="ColorRect" parent="ColorRect"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -52,7 +41,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.647059, 0.596078, 0.411765, 1)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/ColorRect"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
 light_mask = 2
 visibility_layer = 2
 layout_mode = 1
@@ -69,14 +58,14 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 8
 
-[node name="Label" type="Label" parent="ColorRect/ColorRect/VBoxContainer"]
+[node name="Label" type="Label" parent="ColorRect/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.270588, 0.247059, 0.105882, 1)
 theme_override_font_sizes/font_size = 36
 text = "Game Over"
 horizontal_alignment = 1
 
-[node name="restartButton" type="Button" parent="ColorRect/ColorRect/VBoxContainer"]
+[node name="restartButton" type="Button" parent="ColorRect/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.898039, 0.870588, 0.701961, 1)
 theme_override_colors/font_pressed_color = Color(0.270588, 0.247059, 0.105882, 1)
@@ -91,7 +80,7 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_nrkvb")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_mmp4y")
 text = "Restart"
 
-[node name="mainMenuButton" type="Button" parent="ColorRect/ColorRect/VBoxContainer"]
+[node name="mainMenuButton" type="Button" parent="ColorRect/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.898039, 0.870588, 0.701961, 1)
 theme_override_colors/font_pressed_color = Color(0.270588, 0.247059, 0.105882, 1)
@@ -106,4 +95,5 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_nrkvb")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_mmp4y")
 text = "Main Menu"
 
-[connection signal="pressed" from="ColorRect/ColorRect/VBoxContainer/mainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/restartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/mainMenuButton" to="." method="_on_main_menu_button_pressed"]

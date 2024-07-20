@@ -24,6 +24,7 @@ func _ready():
 	
 	add_menu(PAUSE_MENU)
 	PAUSE_MENU.toggle_pause.connect(on_pause_toggled)
+	PAUSE_MENU.restart_requested.connect(on_restart)
 	PAUSE_MENU.hide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -59,11 +60,13 @@ func on_pause_toggled(is_paused):
 	print("Paused: ", paused)
 	
 func on_restart():
-	print("UNIMPLEMNTED: User requested game restart")
+	get_tree().change_scene_to_file("res://World.tscn")
 	
 func on_game_over(didWin):
 	var gameOverMenu = load("res://Menus/GameOverMenu.tscn").instantiate()
-	get_tree().current_scene.get_node("CanvasLayer").add_child(gameOverMenu)
+	gameOverMenu.toggle_pause.connect(on_pause_toggled)
+	gameOverMenu.restart_requested.connect(on_restart)
+	add_menu(gameOverMenu)
 	
 # test spawning in some items 
 func test_spawn_items():

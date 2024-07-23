@@ -11,3 +11,5 @@ script = ExtResource("1_iqf5m")
 offset_right = 40.0
 offset_bottom = 40.0
 texture = SubResource("PlaceholderTexture2D_hy83h")
+
+[node name="ItemInteract" type="AudioStreamPlayer" parent="."]

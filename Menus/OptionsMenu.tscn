@@ -47,19 +47,22 @@ offset_right = 68.0
 offset_bottom = 102.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 11
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/VBoxContainer"]
+[node name="GridContainer" type="GridContainer" parent="ColorRect/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 40
+theme_override_constants/h_separation = 25
+theme_override_constants/v_separation = 10
+columns = 2
 
-[node name="Label" type="Label" parent="ColorRect/VBoxContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="ColorRect/VBoxContainer/GridContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.270588, 0.247059, 0.105882, 1)
 theme_override_font_sizes/font_size = 28
 text = "Difficulty
 "
 
-[node name="difficultyButton" type="OptionButton" parent="ColorRect/VBoxContainer/HBoxContainer"]
+[node name="difficultyButton" type="OptionButton" parent="ColorRect/VBoxContainer/GridContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.898039, 0.870588, 0.701961, 1)
 theme_override_font_sizes/font_size = 28
@@ -72,6 +75,16 @@ popup/item_1/text = "Normal"
 popup/item_1/id = 1
 popup/item_2/text = "Hard"
 popup/item_2/id = 2
+
+[node name="Label2" type="Label" parent="ColorRect/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.270588, 0.247059, 0.105882, 1)
+theme_override_font_sizes/font_size = 28
+text = "Developer Mode"
+
+[node name="developerModeButton" type="CheckButton" parent="ColorRect/VBoxContainer/GridContainer"]
+layout_mode = 2
+icon_alignment = 1
 
 [node name="HSeparator" type="HSeparator" parent="ColorRect/VBoxContainer"]
 custom_minimum_size = Vector2(0, 40)
@@ -93,5 +106,6 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_ss5np")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_83idq")
 text = "Done"
 
-[connection signal="item_selected" from="ColorRect/VBoxContainer/HBoxContainer/difficultyButton" to="." method="_on_difficulty_button_item_selected"]
+[connection signal="item_selected" from="ColorRect/VBoxContainer/GridContainer/difficultyButton" to="." method="_on_difficulty_button_item_selected"]
+[connection signal="toggled" from="ColorRect/VBoxContainer/GridContainer/developerModeButton" to="." method="_on_developer_mode_button_toggled"]
 [connection signal="pressed" from="ColorRect/VBoxContainer/backButton" to="." method="_on_back_button_pressed"]

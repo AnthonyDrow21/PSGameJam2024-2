@@ -9,6 +9,10 @@ var max_time = 0.0
 var _timer : Timer
 
 func _ready():
+	# Do not run light timer if running in dev mode
+	if GameSettings.devModeOn:
+		return
+	
 	if GameSettings.difficulty == GameSettings.DIFFICULTY_LEVEL.Easy:
 		max_time = 30.0
 	elif GameSettings.difficulty == GameSettings.DIFFICULTY_LEVEL.Normal:
@@ -25,8 +29,9 @@ func _ready():
 	_timer.connect("timeout", _on_timer_timeout)
 
 func _process(delta):
-	# Scale the size of the light source based on the remaining time
-	texture_scale = (_timer.time_left / max_time)
+	if _timer:
+		# Scale the size of the light source based on the remaining time
+		texture_scale = (_timer.time_left / max_time)
 
 
 func _on_timer_timeout():

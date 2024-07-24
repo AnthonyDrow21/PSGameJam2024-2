@@ -3,6 +3,7 @@ extends Node
 
 enum DIFFICULTY_LEVEL {Easy, Normal, Hard}
 var difficulty = DIFFICULTY_LEVEL.Normal
+var devModeOn = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

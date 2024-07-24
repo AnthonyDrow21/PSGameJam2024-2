@@ -8,6 +8,9 @@ func load_difficulty_option():
 	assert(GameSettings.difficulty < difficultyButton.item_count)
 	difficultyButton.select(GameSettings.difficulty)
 	
+	var devModeButton = find_child("developerModeButton") as CheckButton
+	devModeButton.button_pressed = GameSettings.devModeOn
+	
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	load_difficulty_option()
@@ -27,3 +30,7 @@ func _on_difficulty_button_item_selected(index):
 	assert(index >= 0)
 	assert(index < GameSettings.DIFFICULTY_LEVEL.size())
 	GameSettings.difficulty = index
+
+
+func _on_developer_mode_button_toggled(toggled_on):
+	GameSettings.devModeOn = toggled_on

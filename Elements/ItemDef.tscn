@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://umuu2jisoefy"]
+
+[ext_resource type="Script" path="res://Elements/ItemDef.gd" id="1_kahtg"]
+
+[node name="ItemDef" type="Node"]
+script = ExtResource("1_kahtg")

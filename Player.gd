@@ -14,20 +14,6 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var animations = {IDLE: "idle", RUNNING: "running", CHARGE: "charge", DAMAGE: "damage"}
 var current_animation = IDLE;
 
-func handle_pickup_inventory_item(pickup_item):
-	print("TODO! Adding ", pickup_item.label, " into inventory")
-
-func handle_pickup_time_item(pickup_item):
-	var time_delta = 0.0
-	if pickup_item.itemType == Types.ItemType.AddTime:
-		time_delta = +5.0
-		# change the animation (TEMPORARY, play a sound here or something!)
-		current_animation = CHARGE
-	elif pickup_item.itemType == Types.ItemType.RemoveTime:
-		time_delta = -5.0
-		# change the animation (TEMPORARY, play a sound here or something!)
-		current_animation = DAMAGE
-	$PointLight2D.update_remaining_time(time_delta)
 
 func player_pickup_item():
 	# Pick up an item
@@ -36,12 +22,8 @@ func player_pickup_item():
 		pickup_item.pick_up_item(self)
 		$PickupZone.items_in_range.erase(pickup_item)
 
-		print("Picked up item: ", pickup_item.label)
-		match pickup_item.itemType:
-			Types.ItemType.AddTime, Types.ItemType.RemoveTime:
-				handle_pickup_time_item(pickup_item)
-			Types.ItemType.Craftable, Types.ItemType.Recipe:
-				handle_pickup_inventory_item(pickup_item)
+		print("Picked up item: ", pickup_item.id)
+		PlayerInventory.add_item(pickup_item.id, 1)
 	
 # Called when the node enters the scene tree for the first time.
 func _ready():

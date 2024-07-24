@@ -19,7 +19,7 @@ config/icon="res://icon.svg"
 
 GameSettings="*res://Globals/GameSettings.gd"
 PlayerInventory="*res://Globals/PlayerInventory.gd"
-Types="*res://Globals/Types.gd"
+ItemDatabase="*res://Globals/ItemDatabase.gd"
 
 [input]
 

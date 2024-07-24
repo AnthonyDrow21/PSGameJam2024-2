@@ -5,9 +5,9 @@ extends CharacterBody2D
 const acceleration = 460
 const max_speed = 500
 
+var id: String
 var label: String
 var animationName: String
-var itemType: Types.ItemType
 
 var player = null
 var being_picked_up = false
@@ -30,10 +30,20 @@ func _physics_process(delta):
 	move_and_slide()
 
 # Call after instantiate
-func with_data(aLabel, aAnimationName, aItemType):
-	animationName = aAnimationName	
-	label = aLabel
-	itemType = aItemType
+func with_id(item_id):	
+	var itemDef = ItemDatabase.get_item(item_id)
+	id = itemDef.id
+	label = itemDef.label
+	animationName = itemDef.animationName
+	
+	if FileAccess.file_exists(itemDef.audioPath):
+		var file = FileAccess.open(itemDef.audioPath, FileAccess.READ)
+		var buffer = file.get_buffer(file.get_length())
+		var stream = AudioStreamMP3.new()
+		stream.data = buffer
+		$PickupAudio.stream = stream
+	else:
+		print("Error: Unable to create ItemUI with sound path ", itemDef.audioPath)
 	return self
 
 func pick_up_item(body):
@@ -41,4 +51,5 @@ func pick_up_item(body):
 	being_picked_up = true
 
 func _on_pickup_audio_finished() -> void:
+	PlayerInventory.add_item(label, 1)
 	queue_free()

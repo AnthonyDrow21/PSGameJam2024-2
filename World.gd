@@ -45,6 +45,7 @@ func _input(event):
 		# only process inventory menu toggle if the game is not paused!
 		if not inPauseMenu:
 			if not inInventoryMenu:
+				INVENTORY_MENU.prepare_for_show()
 				INVENTORY_MENU.show()
 				inInventoryMenu = true
 			else:
@@ -60,6 +61,7 @@ func on_pause_toggled(is_paused):
 	print("Paused: ", paused)
 	
 func on_restart():
+	PlayerInventory.reset()
 	get_tree().change_scene_to_file("res://World.tscn")
 	
 func on_game_over(didWin):
@@ -72,23 +74,32 @@ func on_game_over(didWin):
 func test_spawn_items():
 	const offset = 200
 	# we could be more clever about this, but just testing for now
-	var item1 = ItemDrop.instantiate().with_data("potion_green", "green", Types.ItemType.AddTime)
+	var item1 = ItemDrop.instantiate().with_id("green_potion")
 	get_tree().current_scene.add_child(item1)
 	item1.position.x = $Player.position.x + offset
 	item1.position.y = $Player.position.y
 	
-	var item2 = ItemDrop.instantiate().with_data("potion_black", "black", Types.ItemType.RemoveTime)
+	var item2 = ItemDrop.instantiate().with_id("black_potion")
 	get_tree().current_scene.add_child(item2)
 	item2.position.x = $Player.position.x
 	item2.position.y = $Player.position.y + offset
 	
-	var item3 = ItemDrop.instantiate().with_data("potion_green", "green", Types.ItemType.AddTime)
+	var item3 = ItemDrop.instantiate().with_id("green_potion")
 	get_tree().current_scene.add_child(item3)
 	item3.position.x = $Player.position.x - offset
 	item3.position.y = $Player.position.y
 	
-	var item4 = ItemDrop.instantiate().with_data("potion_black", "black", Types.ItemType.RemoveTime)
-
+	var item4 = ItemDrop.instantiate().with_id("black_potion")
 	get_tree().current_scene.add_child(item4)
 	item4.position.x = $Player.position.x
 	item4.position.y = $Player.position.y - offset
+	
+	var item5 = ItemDrop.instantiate().with_id("pink_potion")
+	get_tree().current_scene.add_child(item5)
+	item5.position.x = $Player.position.x + offset
+	item5.position.y = $Player.position.y + offset
+	
+	var item6 = ItemDrop.instantiate().with_id("pink_potion")
+	get_tree().current_scene.add_child(item6)
+	item6.position.x = $Player.position.x - offset
+	item6.position.y = $Player.position.y - offset

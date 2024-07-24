@@ -1,9 +1,10 @@
-[gd_scene load_steps=44 format=3 uid="uid://qs724ar8c0wb"]
+[gd_scene load_steps=54 format=3 uid="uid://qs724ar8c0wb"]
 
 [ext_resource type="Script" path="res://Elements/ItemDrop.gd" id="1_rps8g"]
 [ext_resource type="Texture2D" uid="uid://couw2cxhrviu6" path="res://Assets/Items/Potions/Large Jar - TURQUOISE - Spritesheet.png" id="2_570ab"]
 [ext_resource type="Texture2D" uid="uid://mg4mtogglcmy" path="res://Assets/Items/Potions/Classic Jar - BLACK - Spritesheet.png" id="3_nbxx7"]
 [ext_resource type="AudioStream" uid="uid://b3gxlcti7jgb4" path="res://Assets/Sounds/Bubble3.wav" id="4_2sdmu"]
+[ext_resource type="Texture2D" uid="uid://5fmho4f37kcc" path="res://Assets/Items/Potions/Small Vial - PINK - Spritesheet.png" id="4_33a81"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jv5fj"]
 atlas = ExtResource("3_nbxx7")
@@ -153,6 +154,42 @@ region = Rect2(396, 0, 18, 34)
 atlas = ExtResource("2_570ab")
 region = Rect2(414, 0, 18, 34)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_sreoa"]
+atlas = ExtResource("4_33a81")
+region = Rect2(0, 0, 14, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_224e8"]
+atlas = ExtResource("4_33a81")
+region = Rect2(14, 0, 14, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2vm0n"]
+atlas = ExtResource("4_33a81")
+region = Rect2(28, 0, 14, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xp45l"]
+atlas = ExtResource("4_33a81")
+region = Rect2(42, 0, 14, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d8844"]
+atlas = ExtResource("4_33a81")
+region = Rect2(56, 0, 14, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jechn"]
+atlas = ExtResource("4_33a81")
+region = Rect2(70, 0, 14, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1jwn4"]
+atlas = ExtResource("4_33a81")
+region = Rect2(84, 0, 14, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w7ghs"]
+atlas = ExtResource("4_33a81")
+region = Rect2(98, 0, 14, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7k47j"]
+atlas = ExtResource("4_33a81")
+region = Rect2(112, 0, 14, 24)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_ip55x"]
 animations = [{
 "frames": [{
@@ -196,7 +233,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_1r6kp")
 }],
 "loop": true,
-"name": &"black",
+"name": &"anim_black_potion",
 "speed": 5.0
 }, {
 "frames": [{
@@ -273,7 +310,39 @@ animations = [{
 "texture": SubResource("AtlasTexture_te8o0")
 }],
 "loop": true,
-"name": &"green",
+"name": &"anim_green_potion",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sreoa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_224e8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2vm0n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xp45l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d8844")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jechn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1jwn4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w7ghs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7k47j")
+}],
+"loop": true,
+"name": &"anim_pink_potion",
 "speed": 5.0
 }]
 
@@ -290,7 +359,7 @@ light_mask = 2
 visibility_layer = 2
 scale = Vector2(0.894356, 0.782822)
 sprite_frames = SubResource("SpriteFrames_ip55x")
-animation = &"black"
+animation = &"anim_black_potion"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_5k4qh")

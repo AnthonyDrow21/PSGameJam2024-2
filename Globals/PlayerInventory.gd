@@ -4,35 +4,32 @@
 # something to be slightly more efficient but oh well)
 extends Node
 
-const NUM_INVENTORY_SLOTS = 12
+# THIS MUST MATCH NUMBER OF SLOTS IN INVENTORYMENU GRID CONTAINER
+const NUM_INVENTORY_SLOTS = 16
 
-signal item_added(itemName : String)
-signal item_removed(itemName : String)
+var inventory = {
+	}
 
-var inventory = {}
-
-func add_item(itemName):
+func add_item(item_id, quantity):
 	if inventory.size() == NUM_INVENTORY_SLOTS:
-		print("ERROR: Max inventory size reached. Unable to add item: ", itemName)
+		print("ERROR: Max inventory size reached. Unable to add item: ", item_id)
 		return
 	
-	if inventory.has(itemName):
-		inventory[itemName] += 1
+	if inventory.has(item_id):
+		inventory[item_id] += quantity
 	else:
-		inventory.add_item(itemName, 1)
-	emit_signal("item_added", itemName)
+		inventory[item_id] = quantity
 
-func remove_item(itemName):
-	if not inventory.has(itemName):
+func remove_item(item_id, quantity):
+	if not inventory.has(item_id):
 		return
 		
-	# Remove one item of itemName from inventory
-	inventory[itemName] -= 1
-	emit_signal("item_removed", itemName)
+	# Remove quantity of itemName from inventory
+	inventory[item_id] -= quantity
 	
 	# Remove itemName if quantity left is 0
-	if inventory[itemName] == 0:
-		inventory.erase(itemName)
+	if inventory[item_id] == 0:
+		inventory.erase(item_id)
 
 func reset():
 	inventory.clear()

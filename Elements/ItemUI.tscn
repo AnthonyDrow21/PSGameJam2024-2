@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://cyfsc5w1rw7s4"]
+
+[ext_resource type="Script" path="res://Elements/ItemUI.gd" id="1_31nla"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_hy83h"]
+
+[node name="Item" type="Node2D"]
+z_index = 1
+script = ExtResource("1_31nla")
+
+[node name="iconTextureRect" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -18.5
+offset_top = -18.5
+offset_right = 18.5
+offset_bottom = 18.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("PlaceholderTexture2D_hy83h")
+metadata/_edit_use_anchors_ = true
+
+[node name="ItemInteract" type="AudioStreamPlayer" parent="."]
+
+[node name="quantityLabel" type="Label" parent="."]
+offset_left = -3.0
+offset_top = -4.0
+offset_right = 17.0
+offset_bottom = 19.0
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true

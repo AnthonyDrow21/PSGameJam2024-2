@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://uc81tvqarkao"]
+[gd_scene load_steps=6 format=3 uid="uid://uc81tvqarkao"]
 
 [ext_resource type="PackedScene" uid="uid://djq3261fo0ym0" path="res://Player.tscn" id="1_ll608"]
 [ext_resource type="Script" path="res://World.gd" id="1_tvj70"]
 [ext_resource type="PackedScene" uid="uid://cnwhwyqvffjtw" path="res://Maps/Forrest.tscn" id="2_0t12h"]
 [ext_resource type="PackedScene" uid="uid://cd4vunmawu2he" path="res://Frog.tscn" id="3_65jqr"]
+[ext_resource type="PackedScene" uid="uid://te8jlc7c4wpr" path="res://Elements/ItemSpawnZone.tscn" id="5_ukgj6"]
 
 [node name="World" type="Node2D"]
 light_mask = 3
@@ -38,3 +39,40 @@ visibility_layer = 2
 color = Color(0.196078, 0.196078, 0.196078, 1)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ItemSpawnZone_GreenPotions" parent="." groups=["SpawnZones"] instance=ExtResource("5_ukgj6")]
+offset_left = 126.0
+offset_top = 53.0
+offset_right = 345.0
+offset_bottom = 169.0
+shouldRespawnIfEmpty = true
+respawnTime_sec = 5
+maxNumberOfItems = 6
+minNumberOfItems = 2
+itemIds = ["green_potion"]
+
+[node name="ItemSpawnZone_PinkPotions" parent="." groups=["SpawnZones"] instance=ExtResource("5_ukgj6")]
+offset_left = 77.0
+offset_top = 516.0
+offset_right = 416.0
+offset_bottom = 591.0
+maxNumberOfItems = 8
+minNumberOfItems = 3
+itemIds = ["pink_potion"]
+
+[node name="ItemSpawnZone_BlackPotions" parent="." groups=["SpawnZones"] instance=ExtResource("5_ukgj6")]
+offset_left = 883.0
+offset_top = 85.0
+offset_right = 1009.0
+offset_bottom = 192.0
+maxNumberOfItems = 4
+itemIds = ["black_potion"]
+
+[node name="ItemSpawnZone_AllPotions" parent="." groups=["SpawnZones"] instance=ExtResource("5_ukgj6")]
+offset_left = 755.0
+offset_top = 430.0
+offset_right = 1113.0
+offset_bottom = 613.0
+maxNumberOfItems = 8
+minNumberOfItems = 3
+itemIds = ["green_potion", "pink_potion", "black_potion"]

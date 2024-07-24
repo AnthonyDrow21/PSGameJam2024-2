@@ -17,8 +17,7 @@ func add_menu(menu):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$Player/CharacterBody2D/PointLight2D.connect("game_over", on_game_over)
-	test_spawn_items()
+	$Player/CharacterBody2D/PointLight2D.connect("game_over", on_game_over)	
 	add_menu(INVENTORY_MENU)
 	INVENTORY_MENU.hide()
 	
@@ -26,6 +25,10 @@ func _ready():
 	PAUSE_MENU.toggle_pause.connect(on_pause_toggled)
 	PAUSE_MENU.restart_requested.connect(on_restart)
 	PAUSE_MENU.hide()
+	
+	# initialize spawn zones
+	for zone in get_tree().get_nodes_in_group("SpawnZones"):
+		zone._initialize()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -73,37 +76,3 @@ func on_game_over(didWin):
 	gameOverMenu.toggle_pause.connect(on_pause_toggled)
 	gameOverMenu.restart_requested.connect(on_restart)
 	add_menu(gameOverMenu)
-	
-# test spawning in some items 
-func test_spawn_items():
-	const offset = 200
-	# we could be more clever about this, but just testing for now
-	var item1 = ItemDrop.instantiate().with_id("green_potion")
-	get_tree().current_scene.add_child(item1)
-	item1.position.x = $Player.position.x + offset
-	item1.position.y = $Player.position.y
-	
-	var item2 = ItemDrop.instantiate().with_id("black_potion")
-	get_tree().current_scene.add_child(item2)
-	item2.position.x = $Player.position.x
-	item2.position.y = $Player.position.y + offset
-	
-	var item3 = ItemDrop.instantiate().with_id("green_potion")
-	get_tree().current_scene.add_child(item3)
-	item3.position.x = $Player.position.x - offset
-	item3.position.y = $Player.position.y
-	
-	var item4 = ItemDrop.instantiate().with_id("black_potion")
-	get_tree().current_scene.add_child(item4)
-	item4.position.x = $Player.position.x
-	item4.position.y = $Player.position.y - offset
-	
-	var item5 = ItemDrop.instantiate().with_id("pink_potion")
-	get_tree().current_scene.add_child(item5)
-	item5.position.x = $Player.position.x + offset
-	item5.position.y = $Player.position.y + offset
-	
-	var item6 = ItemDrop.instantiate().with_id("pink_potion")
-	get_tree().current_scene.add_child(item6)
-	item6.position.x = $Player.position.x - offset
-	item6.position.y = $Player.position.y - offset

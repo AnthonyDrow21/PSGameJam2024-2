@@ -13,6 +13,8 @@ var player = null
 var being_picked_up = false
 var is_playing = false;
 
+signal picked_up
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$AnimatedSprite2D.play(animationName)
@@ -45,6 +47,7 @@ func with_id(item_id):
 func pick_up_item(body):
 	player = body
 	being_picked_up = true
+	emit_signal("picked_up")
 
 func _on_pickup_audio_finished() -> void:
 	queue_free()

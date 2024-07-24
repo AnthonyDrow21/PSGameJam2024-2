@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://te8jlc7c4wpr"]
+
+[ext_resource type="Script" path="res://Elements/ItemSpawnZone.gd" id="1_khnre"]
+
+[node name="ItemSpawnZone" type="Control"]
+modulate = Color(1, 0, 1, 0.27451)
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_khnre")

@@ -18,6 +18,8 @@ var current_animation = IDLE;
 func player_pickup_item():
 	# Pick up an item
 	if $PickupZone.items_in_range.size() > 0:
+		#print("Zone items: ", $PickupZone.items_in_range)
+		
 		var pickup_item = $PickupZone.items_in_range.values()[0]
 		pickup_item.pick_up_item(self)
 		$PickupZone.items_in_range.erase(pickup_item)

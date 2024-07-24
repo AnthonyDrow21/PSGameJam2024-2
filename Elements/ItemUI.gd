@@ -26,11 +26,7 @@ func with_id(item_id, quantity):
 		print("Error: Unable to create ItemUI with icon ", itemDef.iconPath)
 	
 	if FileAccess.file_exists(itemDef.audioPath):
-		var file = FileAccess.open(itemDef.audioPath, FileAccess.READ)
-		var buffer = file.get_buffer(file.get_length())
-		var stream = AudioStreamMP3.new()
-		stream.data = buffer
-		$ItemInteract.stream = stream
+		$ItemInteract.stream = load(itemDef.audioPath)
 	else:
 		print("Error: Unable to create ItemUI with sound path ", itemDef.audioPath)
 	return self

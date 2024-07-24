@@ -58,7 +58,7 @@ func update_active_slot(slot, activate):
 func slot_gui_input(event: InputEvent, slot:SlotClass):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT && event.is_pressed():
-			print("clicking on slot ", slot)
+			#print("clicking on slot ", slot)
 			update_selected_item_view(slot)
 			if slot.selectedItem: # we are holding an item at this slot; take ownership
 				heldItem = slot.selectedItem
@@ -66,7 +66,7 @@ func slot_gui_input(event: InputEvent, slot:SlotClass):
 				heldItem.global_position = get_global_mouse_position()
 		elif event.button_index == MOUSE_BUTTON_LEFT && event.is_released():
 			# NOTE: using 'activeSlot' here, since gui_input events are giving me first slot...
-			print("released on slot ", activeSlot)
+			#print("released on slot ", activeSlot)
 			if heldItem != null: # we are holding an item; move ownership to slot we're hovering over
 				if activeSlot != null: # hovering over a valid slot, move item into slot
 					if !activeSlot.selectedItem:

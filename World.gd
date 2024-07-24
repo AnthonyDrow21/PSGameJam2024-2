@@ -65,6 +65,10 @@ func on_restart():
 	get_tree().change_scene_to_file("res://World.tscn")
 	
 func on_game_over(didWin):
+	if INVENTORY_MENU.visible:
+		INVENTORY_MENU.hide()
+		inInventoryMenu = false
+	
 	var gameOverMenu = load("res://Menus/GameOverMenu.tscn").instantiate()
 	gameOverMenu.toggle_pause.connect(on_pause_toggled)
 	gameOverMenu.restart_requested.connect(on_restart)

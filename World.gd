@@ -2,6 +2,9 @@ extends Node2D
 
 var ItemDrop = preload("res://Elements/ItemDrop.tscn")
 
+var CRAFTING_MENU = preload("res://Menus/CraftingMenu.tscn").instantiate()
+var inCraftingMenu = false
+
 var INVENTORY_MENU = preload("res://Menus/InventoryMenu.tscn").instantiate()
 var inInventoryMenu = false
 
@@ -20,6 +23,9 @@ func _ready():
 	$Player/CharacterBody2D/PointLight2D.connect("game_over", on_game_over)	
 	add_menu(INVENTORY_MENU)
 	INVENTORY_MENU.hide()
+	
+	add_menu(CRAFTING_MENU)
+	CRAFTING_MENU.hide()
 	
 	add_menu(PAUSE_MENU)
 	PAUSE_MENU.toggle_pause.connect(on_pause_toggled)
@@ -50,10 +56,14 @@ func _input(event):
 			if not inInventoryMenu:
 				INVENTORY_MENU.prepare_for_show()
 				INVENTORY_MENU.show()
+				CRAFTING_MENU.show()
 				inInventoryMenu = true
+				inCraftingMenu = true
 			else:
 				INVENTORY_MENU.hide()
+				CRAFTING_MENU.hide()
 				inInventoryMenu = false
+				inCraftingMenu = false
 
 func on_pause_toggled(is_paused):
 	if not is_paused:

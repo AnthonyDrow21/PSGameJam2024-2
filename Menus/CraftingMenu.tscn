@@ -1,0 +1,149 @@
+[gd_scene load_steps=8 format=3 uid="uid://cjea1kpw0bfqb"]
+
+[ext_resource type="Script" path="res://Menus/PrimeSlot.gd" id="1_27o7h"]
+[ext_resource type="Script" path="res://Menus/Sprite2D.gd" id="2_j20pt"]
+[ext_resource type="Script" path="res://Menus/MindButton.gd" id="2_s6wq0"]
+[ext_resource type="Texture2D" uid="uid://dqi1i8bir2eh" path="res://Assets/MenuArt/MindSymbol.png" id="3_7br00"]
+[ext_resource type="Texture2D" uid="uid://b1l6ajxc2ch56" path="res://Assets/MenuArt/BodySymbol.png" id="4_r1p1j"]
+[ext_resource type="Texture2D" uid="uid://ct01b67dje3we" path="res://Assets/MenuArt/SpiritSymbol.png" id="5_tydjj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ka1lp"]
+bg_color = Color(0.270588, 0.247059, 0.105882, 1)
+
+[node name="CraftingMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 8.0
+offset_right = 16.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -278.0
+offset_top = 156.0
+offset_right = 233.0
+offset_bottom = 306.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.647059, 0.596078, 0.407843, 1)
+
+[node name="GridContainer" type="GridContainer" parent="ColorRect"]
+layout_mode = 2
+offset_left = 59.995
+offset_top = 45.0
+offset_right = 259.995
+offset_bottom = 120.0
+grow_vertical = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 4
+
+[node name="PrimeSlot" type="Panel" parent="ColorRect/GridContainer"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ka1lp")
+script = ExtResource("1_27o7h")
+
+[node name="Sprite2D" type="Sprite2D" parent="ColorRect/GridContainer/PrimeSlot"]
+position = Vector2(31.005, 30)
+scale = Vector2(2, 2)
+script = ExtResource("2_j20pt")
+
+[node name="ElementSlot" type="Panel" parent="ColorRect/GridContainer"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ka1lp")
+
+[node name="MetalSlot" type="Panel" parent="ColorRect/GridContainer"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ka1lp")
+
+[node name="selectedItemPanel" type="Panel" parent="ColorRect"]
+layout_mode = 0
+offset_left = 320.0
+offset_top = 35.0
+offset_right = 400.0
+offset_bottom = 115.0
+
+[node name="itemLabel" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = 79.0
+offset_top = 109.0
+offset_right = 234.0
+offset_bottom = 159.0
+theme_override_colors/font_color = Color(0.270588, 0.247059, 0.105882, 1)
+theme_override_font_sizes/font_size = 24
+text = "The Cauldron"
+
+[node name="itemDescription" type="Label" parent="ColorRect"]
+visible = false
+layout_mode = 0
+offset_left = 100.0
+offset_top = 100.0
+offset_right = 250.0
+offset_bottom = 250.0
+theme_override_colors/font_color = Color(0.270588, 0.247059, 0.105882, 1)
+theme_override_font_sizes/font_size = 12
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+autowrap_mode = 2
+
+[node name="BrewButton" type="Button" parent="ColorRect"]
+layout_mode = 0
+offset_left = 412.0
+offset_top = 76.0
+offset_right = 465.0
+offset_bottom = 114.0
+text = "BREW"
+expand_icon = true
+
+[node name="PrimeButtons" type="Node2D" parent="ColorRect"]
+position = Vector2(66, 35)
+
+[node name="MindButton" type="Button" parent="ColorRect/PrimeButtons"]
+offset_left = 3.0
+offset_top = -11.0
+offset_right = 25.0
+offset_bottom = 10.0
+script = ExtResource("2_s6wq0")
+
+[node name="Sprite2D" type="Sprite2D" parent="ColorRect/PrimeButtons/MindButton"]
+position = Vector2(11, 8)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("3_7br00")
+
+[node name="BodyButton" type="Button" parent="ColorRect/PrimeButtons"]
+offset_left = 14.0
+offset_top = -32.0
+offset_right = 35.0
+offset_bottom = -11.0
+
+[node name="Sprite2D" type="Sprite2D" parent="ColorRect/PrimeButtons/BodyButton"]
+position = Vector2(10, 10)
+texture = ExtResource("4_r1p1j")
+
+[node name="SpiritButton" type="Button" parent="ColorRect/PrimeButtons"]
+offset_left = 25.0
+offset_top = -11.0
+offset_right = 46.0
+offset_bottom = 10.0
+
+[node name="Sprite2D" type="Sprite2D" parent="ColorRect/PrimeButtons/SpiritButton"]
+position = Vector2(11, 10)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("5_tydjj")
+
+[connection signal="pressed" from="ColorRect/PrimeButtons/MindButton" to="ColorRect/GridContainer/PrimeSlot" method="_on_mind_button_pressed"]
+[connection signal="pressed" from="ColorRect/PrimeButtons/MindButton" to="ColorRect/GridContainer/PrimeSlot/Sprite2D" method="_on_mind_button_pressed"]
+[connection signal="pressed" from="ColorRect/PrimeButtons/BodyButton" to="ColorRect/GridContainer/PrimeSlot/Sprite2D" method="_on_body_button_pressed"]
+[connection signal="pressed" from="ColorRect/PrimeButtons/SpiritButton" to="ColorRect/GridContainer/PrimeSlot/Sprite2D" method="_on_spirit_button_pressed"]

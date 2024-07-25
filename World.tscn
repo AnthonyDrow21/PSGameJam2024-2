@@ -26,7 +26,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Player" parent="." instance=ExtResource("1_ll608")]
-position = Vector2(567, 333)
+position = Vector2(466, 251)
 
 [node name="Frog" parent="." instance=ExtResource("3_65jqr")]
 light_mask = 2

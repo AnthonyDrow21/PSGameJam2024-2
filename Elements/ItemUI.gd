@@ -1,6 +1,7 @@
 # Inventory version of an item
 extends Node2D
 
+var item_id : String
 var label : String
 var description : String
 var iconPath : String
@@ -12,6 +13,8 @@ func _ready():
 
 # Call this with instantiate() to set up item data
 func with_id(item_id, quantity):
+	self.item_id = item_id
+	
 	assert(quantity >= 1)
 	edit_quantity(quantity)
 		

@@ -1,35 +1,62 @@
 # Logic for insertion/removal of items from the player's inventory
-# Using just name and quantity; can be translated on actual inventory UI
-# by getting an item def from the name (we could change this to indices or
-# something to be slightly more efficient but oh well)
+# NOTE: THIS WILL NOT SCALE WELL. lol. Iterating linearly. If we have oodles
+#       of items, we should use a better data structure here.
 extends Node
 
 # THIS MUST MATCH NUMBER OF SLOTS IN INVENTORYMENU GRID CONTAINER
 const NUM_INVENTORY_SLOTS = 16
 
+# key is unsigned int 0 - NUM_INVENTORY_SLOTS-1
+# value is array [item_id, item_quantity]
 var inventory = {
 	}
 
-func add_item(item_id, quantity):
-	if inventory.size() == NUM_INVENTORY_SLOTS:
-		print("ERROR: Max inventory size reached. Unable to add item: ", item_id)
-		return
-	
-	if inventory.has(item_id):
-		inventory[item_id] += quantity
+func add_item_at_idx(idx, item_id, quantity):
+	if inventory.has(idx):
+		print("ERROR: idx ", idx, " already has item, but passed to PlayerInventory.add_item_at_idx")
 	else:
-		inventory[item_id] = quantity
+		inventory[idx] = [item_id, quantity]
+
+func swap_items_at_idx(idx1, idx2):
+	if not inventory.has(idx1):
+		print("ERROR: Invalid idx ", idx1, " passed to PlayerInventory.swap_items_at_idx")
+		return
+	if not inventory.has(idx2):
+		print("ERROR: Invalid idx ", idx2, " passed to PlayerInventory.swap_items_at_idx")
+		return
+	# idxs are valid, do the swap
+	var tmp = inventory[idx1]
+	inventory[idx1] = inventory[idx2]
+	inventory[idx2] = tmp
+
+func remove_item_at_idx(idx):
+	if not inventory.has(idx):
+		print("ERROR: Invalid idx ", idx, " passed to PlayerInventory.remove_item_at_idx")
+	else:
+		inventory.erase(idx)		
+	
+func add_item(item_id, quantity):
+	# try to find item_id in the inventory already
+	for item in inventory:
+		if inventory[item][0] == item_id:
+			inventory[item][1] += quantity
+			return
+	# item_id not in inventory; try to find an open slot
+	for i in range(NUM_INVENTORY_SLOTS):
+		if not inventory.has(i):
+			inventory[i] = [item_id, quantity]
+			return
+	# we didn't find an open slot
+	print("ERROR: Max inventory size reached. Unable to add item: ", item_id)
 
 func remove_item(item_id, quantity):
-	if not inventory.has(item_id):
-		return
-		
-	# Remove quantity of itemName from inventory
-	inventory[item_id] -= quantity
-	
-	# Remove itemName if quantity left is 0
-	if inventory[item_id] == 0:
-		inventory.erase(item_id)
+	for item in inventory:
+		if inventory[item][0] == item_id:
+			inventory[item][1] -= quantity
+			if inventory[item][1] == 0:
+				inventory.erase(item)
+			return
+	print("ERROR: Unable to find item ", item_id, " to remove from inventory.")
 
 func reset():
 	inventory.clear()

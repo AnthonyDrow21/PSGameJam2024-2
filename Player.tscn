@@ -231,6 +231,9 @@ visibility_layer = 2
 z_index = 1
 script = ExtResource("1_sjb5b")
 
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+position = Vector2(0, -1)
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
 light_mask = 2
 visibility_layer = 2

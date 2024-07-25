@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://vkn6cq7tdrur"]
+[gd_scene load_steps=9 format=3 uid="uid://vkn6cq7tdrur"]
 
 [ext_resource type="Script" path="res://Menus/MainMenu.gd" id="1_53jl2"]
+[ext_resource type="AudioStream" uid="uid://bfx0kbp12xasc" path="res://Assets/Music/MainTheme1.ogg" id="2_a4sy2"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yywsc"]
 
@@ -94,6 +95,10 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_b4xp3")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_rylr8")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_disxs")
 text = "Quit"
+
+[node name="ThemeMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_a4sy2")
+autoplay = true
 
 [connection signal="mouse_entered" from="VBoxContainer/startButton" to="." method="_on_start_button_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/startButton" to="." method="_on_start_button_pressed"]

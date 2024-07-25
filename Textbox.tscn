@@ -1,0 +1,83 @@
+[gd_scene load_steps=6 format=3 uid="uid://dndsgtaw3w7s3"]
+
+[ext_resource type="Script" path="res://Textbox.gd" id="1_qq3iq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tln1a"]
+bg_color = Color(0.54849, 0.30917, 0.217229, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="SystemFont" id="SystemFont_kt4h2"]
+
+[sub_resource type="Theme" id="Theme_k5xat"]
+Textbox/fonts/GameText = SubResource("SystemFont_kt4h2")
+
+[sub_resource type="SystemFont" id="SystemFont_6jlt6"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_qq3iq")
+
+[node name="OuterMarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -139.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 240
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 240
+theme_override_constants/margin_bottom = 10
+
+[node name="Panel" type="Panel" parent="OuterMarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_tln1a")
+
+[node name="MarginContainer" type="MarginContainer" parent="OuterMarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = -1.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="OuterMarginContainer/Panel/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Start" type="Label" parent="OuterMarginContainer/Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme = SubResource("Theme_k5xat")
+theme_override_colors/font_color = Color(0.580392, 0.580392, 0.580392, 1)
+theme_override_font_sizes/font_size = 27
+text = "
+"
+
+[node name="Label" type="Label" parent="OuterMarginContainer/Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0.580392, 0.580392, 0.580392, 1)
+theme_override_fonts/font = SubResource("SystemFont_6jlt6")
+theme_override_font_sizes/font_size = 27
+
+[node name="End" type="Label" parent="OuterMarginContainer/Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0.580392, 0.580392, 0.580392, 1)
+theme_override_font_sizes/font_size = 27

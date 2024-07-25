@@ -22,6 +22,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 texture = SubResource("PlaceholderTexture2D_hy83h")
+stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
 [node name="ItemInteract" type="AudioStreamPlayer" parent="."]

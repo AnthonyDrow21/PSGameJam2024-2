@@ -8,7 +8,7 @@ var heldItem = null
 var activeSlot = null
 
 func reset():
-	for slot in $GridContainer.get_children():
+	for slot in $ColorRect/HBoxContainer/GridContainer.get_children():
 		if slot.get_child_count() > 0:
 			assert(slot.get_child_count() == 1) # should only ever have one item in the slot
 			slot.remove_child(slot.get_children()[0])
@@ -17,7 +17,7 @@ func prepare_for_show():
 	reset()
 	
 	# preparing to show the inventory to the user; load the items in
-	var slots = $GridContainer.get_children()
+	var slots = $ColorRect/HBoxContainer/GridContainer.get_children()
 	assert(slots.size() == PlayerInventory.NUM_INVENTORY_SLOTS)
 	
 	var slot_idx = 0
@@ -29,7 +29,7 @@ func prepare_for_show():
 	update_selected_item_view(slots[0])
 
 func _ready():
-	for slot in $GridContainer.get_children():
+	for slot in $ColorRect/HBoxContainer/GridContainer.get_children():
 		slot.gui_input.connect(slot_gui_input.bind(slot))
 		slot.mouse_entered.connect(update_active_slot.bind(slot, true))
 		slot.mouse_exited.connect(update_active_slot.bind(slot, false))
@@ -38,16 +38,16 @@ func update_selected_item_view(slot):
 	if slot.get_child_count() > 0:
 		assert(slot.get_child_count() == 1)
 		var item = slot.get_children()[0]
-		$ColorRect/itemLabel.text = item.label
-		$ColorRect/itemDescription.text = item.description
+		$ColorRect/HBoxContainer/VBoxContainer/itemLabel.text = item.label
+		$ColorRect/HBoxContainer/VBoxContainer/itemDescription.text = item.description
 		# todo: scaling is awful
 		var image = Image.load_from_file(item.iconPath)
-		$ColorRect/itemImage.texture = ImageTexture.create_from_image(image)
+		$ColorRect/HBoxContainer/VBoxContainer/itemImage.texture = ImageTexture.create_from_image(image)
 		
 	else:
-		$ColorRect/itemLabel.text = ""
-		$ColorRect/itemDescription.text = ""
-		$ColorRect/itemImage.texture = null
+		$ColorRect/HBoxContainer/VBoxContainer/itemLabel.text = ""
+		$ColorRect/HBoxContainer/VBoxContainer/itemDescription.text = ""
+		$ColorRect/HBoxContainer/VBoxContainer/itemImage.texture = null
 
 func update_active_slot(slot, activate):
 	if activate:

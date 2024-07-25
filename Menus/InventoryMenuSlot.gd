@@ -2,6 +2,13 @@ extends Panel
 
 var ItemUIClass = preload("res://Elements/ItemUI.tscn")
 var selectedItem = null
+var slot_idx : int
+
+func reset():
+	selectedItem = null
+	if get_child_count() > 0:
+		assert(get_child_count() == 1) # should only ever have one item in the slot
+		remove_child(get_children()[0])
 
 func move_item_out_of_slot():
 	remove_child(selectedItem)

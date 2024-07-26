@@ -89,9 +89,6 @@ func toggle_journal_menu(open):
 func toggle_pause(is_paused):
 	paused = is_paused
 	get_tree().paused = paused
-	if paused:
-		set_process_input(true)
-	print("Paused: ", paused)
 	
 func on_restart():
 	PlayerInventory.reset()

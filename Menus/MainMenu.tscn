@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Menus/MainMenu.gd" id="1_53jl2"]
 [ext_resource type="Texture2D" uid="uid://b7gdkr1bhlruf" path="res://Assets/Images/Forest.png" id="2_4l5ls"]
-[ext_resource type="AudioStream" uid="uid://bfx0kbp12xasc" path="res://Assets/Music/MainTheme1.ogg" id="2_a4sy2"]
+[ext_resource type="AudioStream" uid="uid://cgqd02mgti42u" path="res://Assets/Music/MainTheme2.ogg" id="3_pd24n"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yywsc"]
 
@@ -104,7 +104,8 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_disxs")
 text = "Quit"
 
 [node name="ThemeMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_a4sy2")
+stream = ExtResource("3_pd24n")
+volume_db = -6.0
 autoplay = true
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]

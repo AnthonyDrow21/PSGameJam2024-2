@@ -1,7 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://cd4vunmawu2he"]
+[gd_scene load_steps=11 format=3 uid="uid://cd4vunmawu2he"]
 
 [ext_resource type="Texture2D" uid="uid://dvrqk5rgwarch" path="res://Assets/Froggo/Idle.png" id="1_3vmaw"]
 [ext_resource type="Script" path="res://Frog.gd" id="1_vpanl"]
+[ext_resource type="Script" path="res://Dialogue/FrogDialogue.gd" id="3_l5nyi"]
+[ext_resource type="PackedScene" uid="uid://dndsgtaw3w7s3" path="res://Textbox.tscn" id="4_1xcj0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_daiht"]
 atlas = ExtResource("1_3vmaw")
@@ -40,7 +42,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_px4ym"]
-size = Vector2(19, 10)
+size = Vector2(35, 25)
 
 [node name="Frog" type="Node2D"]
 
@@ -54,6 +56,14 @@ light_mask = 2
 visibility_layer = 2
 sprite_frames = SubResource("SpriteFrames_yh4ha")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(0.5, 2)
+[node name="Area2D" type="Area2D" parent="CharacterBody2D"]
+position = Vector2(0, 2)
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("3_l5nyi")
+
+[node name="Dialogue" parent="CharacterBody2D/Area2D" instance=ExtResource("4_1xcj0")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Area2D"]
 shape = SubResource("RectangleShape2D_px4ym")
+debug_color = Color(0, 0.6, 0.701961, 1)

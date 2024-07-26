@@ -1,0 +1,70 @@
+[gd_scene load_steps=11 format=3 uid="uid://bp2iynunt3ucr"]
+
+[ext_resource type="Texture2D" uid="uid://1rsnnnf42urb" path="res://Assets/MiniWorldSprites/Animals/HornedSheep.png" id="1_chx3s"]
+[ext_resource type="Script" path="res://CharacterBody2D.gd" id="1_s7ema"]
+[ext_resource type="Script" path="res://Dialogue/SheepDialogue.gd" id="2_anoay"]
+[ext_resource type="PackedScene" uid="uid://dndsgtaw3w7s3" path="res://Textbox.tscn" id="3_iuw8j"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tvang"]
+atlas = ExtResource("1_chx3s")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0g0uf"]
+atlas = ExtResource("1_chx3s")
+region = Rect2(16, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_catbi"]
+atlas = ExtResource("1_chx3s")
+region = Rect2(32, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i6hgf"]
+atlas = ExtResource("1_chx3s")
+region = Rect2(48, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vblwk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tvang")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0g0uf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_catbi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i6hgf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0w3an"]
+
+[node name="Sheep" type="Node2D"]
+light_mask = 2
+visibility_layer = 2
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+light_mask = 2
+visibility_layer = 2
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_s7ema")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+light_mask = 2
+visibility_layer = 2
+sprite_frames = SubResource("SpriteFrames_vblwk")
+
+[node name="Area2D" type="Area2D" parent="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("2_anoay")
+
+[node name="Dialogue" parent="CharacterBody2D/Area2D" instance=ExtResource("3_iuw8j")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Area2D"]
+shape = SubResource("RectangleShape2D_0w3an")

@@ -1,18 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dndsgtaw3w7s3"]
+[gd_scene load_steps=7 format=3 uid="uid://dndsgtaw3w7s3"]
 
 [ext_resource type="Script" path="res://Textbox.gd" id="1_qq3iq"]
+[ext_resource type="Texture2D" uid="uid://ch46dph3tut8c" path="res://Assets/UI/text_frame.png" id="2_0lflg"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tln1a"]
-bg_color = Color(0.54849, 0.30917, 0.217229, 1)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eovbo"]
+texture = ExtResource("2_0lflg")
 
 [sub_resource type="SystemFont" id="SystemFont_kt4h2"]
 subpixel_positioning = 0
@@ -23,8 +15,9 @@ Textbox/fonts/GameText = SubResource("SystemFont_kt4h2")
 [sub_resource type="SystemFont" id="SystemFont_6jlt6"]
 subpixel_positioning = 0
 
-[node name="CanvasLayer" type="CanvasLayer"]
+[node name="Dialogue" type="CanvasLayer"]
 script = ExtResource("1_qq3iq")
+dialogue_file = "res://Dialogue/FrogDialogue.json"
 
 [node name="OuterMarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 12
@@ -41,7 +34,7 @@ theme_override_constants/margin_bottom = 10
 
 [node name="Panel" type="Panel" parent="OuterMarginContainer"]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_tln1a")
+theme_override_styles/panel = SubResource("StyleBoxTexture_eovbo")
 
 [node name="MarginContainer" type="MarginContainer" parent="OuterMarginContainer/Panel"]
 layout_mode = 1
@@ -69,7 +62,7 @@ theme_override_font_sizes/font_size = 27
 text = "
 "
 
-[node name="Label" type="Label" parent="OuterMarginContainer/Panel/MarginContainer/HBoxContainer"]
+[node name="Text" type="Label" parent="OuterMarginContainer/Panel/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1

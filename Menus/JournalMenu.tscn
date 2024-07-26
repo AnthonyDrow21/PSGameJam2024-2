@@ -1,0 +1,92 @@
+[gd_scene load_steps=13 format=3 uid="uid://m5diy6bljc6v"]
+
+[ext_resource type="Script" path="res://Menus/JournalMenu.gd" id="1_8kf0s"]
+[ext_resource type="Texture2D" uid="uid://bvm2rjloe8v3b" path="res://Assets/UI/Journal/journal.png" id="1_bwdqm"]
+[ext_resource type="Texture2D" uid="uid://brmb83130v0wb" path="res://Assets/UI/Journal/return_idle.png" id="2_rrswj"]
+[ext_resource type="Texture2D" uid="uid://dddl1r4t0ubof" path="res://Assets/UI/Journal/return_hover.png" id="3_242r0"]
+[ext_resource type="Texture2D" uid="uid://ghnf37x6jqx0" path="res://Assets/UI/Journal/button_idle.png" id="4_uvyc7"]
+[ext_resource type="Texture2D" uid="uid://dmugedpd2vk1h" path="res://Assets/UI/Journal/button_hover.png" id="5_hyp7j"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nk15x"]
+texture = ExtResource("2_rrswj")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m124j"]
+texture = ExtResource("3_242r0")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rnbxt"]
+texture = ExtResource("3_242r0")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kug0c"]
+texture = ExtResource("4_uvyc7")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iocke"]
+texture = ExtResource("5_hyp7j")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m8rmy"]
+texture = ExtResource("5_hyp7j")
+
+[node name="JournalMenu" type="Control"]
+process_mode = 3
+z_index = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8kf0s")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_bwdqm")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="exitButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 869.0
+offset_top = 111.0
+offset_right = 907.0
+offset_bottom = 148.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_nk15x")
+theme_override_styles/hover = SubResource("StyleBoxTexture_m124j")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_rnbxt")
+
+[node name="nextButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 864.0
+offset_top = 499.0
+offset_right = 914.0
+offset_bottom = 536.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxTexture_kug0c")
+theme_override_styles/hover = SubResource("StyleBoxTexture_iocke")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_m8rmy")
+text = ">"
+
+[node name="previousButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 227.0
+offset_top = 499.0
+offset_right = 277.0
+offset_bottom = 536.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxTexture_kug0c")
+theme_override_styles/hover = SubResource("StyleBoxTexture_iocke")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_m8rmy")
+text = "<"
+
+[connection signal="pressed" from="exitButton" to="." method="_on_exit_button_pressed"]

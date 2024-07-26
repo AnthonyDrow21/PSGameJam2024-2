@@ -7,6 +7,7 @@
 bg_color = Color(0.270588, 0.247059, 0.105882, 1)
 
 [node name="InventoryMenu" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -41,6 +42,7 @@ offset_right = -10.0
 offset_bottom = -11.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 15
 
 [node name="GridContainer" type="GridContainer" parent="ColorRect/HBoxContainer"]
 layout_mode = 2
@@ -175,3 +177,9 @@ theme_override_font_sizes/font_size = 12
 text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
 horizontal_alignment = 1
 autowrap_mode = 2
+
+[node name="openButton" type="Button" parent="ColorRect/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Read"
+
+[connection signal="pressed" from="ColorRect/HBoxContainer/VBoxContainer/openButton" to="." method="_on_open_button_pressed"]

@@ -2,14 +2,16 @@
 # TODO: Keep order that the player arranges through drag-and-drop!
 extends Control
 
+signal toggle_inventory(open)
+signal toggle_journal(open)
 const SlotClass = preload("res://Menus/InventoryMenuSlot.gd")
 
 var heldItem = null
-var activeSlot = null
+var hoverSlot = null
 
 func reset():
 	heldItem = null
-	activeSlot = null
+	hoverSlot = null
 	for slot in $ColorRect/HBoxContainer/GridContainer.get_children():
 		slot.reset()
 
@@ -47,16 +49,23 @@ func update_selected_item_view(slot):
 		var image = Image.load_from_file(item.iconPath)
 		$ColorRect/HBoxContainer/VBoxContainer/itemImage.texture = ImageTexture.create_from_image(image)
 		
+		# todo: this is pretty ugly- if we want a use button for any other type, we need to add
+		# it here... could implement some kind of usable system with callbacks for the item...
+		if item.item_id == "journal":
+			$ColorRect/HBoxContainer/VBoxContainer/openButton.show()
+		else:
+			$ColorRect/HBoxContainer/VBoxContainer/openButton.hide()
 	else:
 		$ColorRect/HBoxContainer/VBoxContainer/itemLabel.text = ""
 		$ColorRect/HBoxContainer/VBoxContainer/itemDescription.text = ""
 		$ColorRect/HBoxContainer/VBoxContainer/itemImage.texture = null
+		$ColorRect/HBoxContainer/VBoxContainer/openButton.hide()
 
 func update_active_slot(slot, activate):
 	if activate:
-		activeSlot = slot
+		hoverSlot = slot
 	else:
-		activeSlot = null
+		hoverSlot = null
 
 func move_item_into_empty_slot(from_slot, to_slot):
 	PlayerInventory.remove_item_at_idx(from_slot.slot_idx)
@@ -99,18 +108,27 @@ func slot_gui_input(event: InputEvent, slot:SlotClass):
 				return # no item to move
 		
 			# we are holding an item; move ownership to slot we're hovering over (if valid)
-			if activeSlot == null:
+			if hoverSlot == null:
 				# not hovering over a valid slot, put the item back into its old slot
 				slot.move_item_into_slot(heldItem)
 				heldItem = null
 				return
 			
 			# dropping an item into a valid slot, move item into slot
-			if !activeSlot.selectedItem:
-				move_item_into_empty_slot(slot, activeSlot)
+			if !hoverSlot.selectedItem:
+				move_item_into_empty_slot(slot, hoverSlot)
 			else:
-				swap_item_at_slot(slot, activeSlot)
+				swap_item_at_slot(slot, hoverSlot)
 
 func _input(event):
 	if heldItem != null:
 		heldItem.global_position = get_global_mouse_position()
+	
+	if event.is_action_pressed("toggle_inventory"):
+		if not visible and not get_tree().paused:
+			emit_signal("toggle_inventory", true)
+		elif visible:
+			emit_signal("toggle_inventory", false)
+
+func _on_open_button_pressed():
+	emit_signal("toggle_journal", true)

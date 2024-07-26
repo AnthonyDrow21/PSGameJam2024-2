@@ -13,6 +13,7 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tppmw"]
 
 [node name="PauseMenu" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5

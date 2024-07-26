@@ -11,6 +11,7 @@
 bg_color = Color(0.270588, 0.247059, 0.105882, 1)
 
 [node name="CraftingMenu" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 7
 anchor_left = 0.5

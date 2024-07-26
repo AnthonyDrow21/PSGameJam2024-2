@@ -15,11 +15,13 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 
 [sub_resource type="SystemFont" id="SystemFont_kt4h2"]
+subpixel_positioning = 0
 
 [sub_resource type="Theme" id="Theme_k5xat"]
 Textbox/fonts/GameText = SubResource("SystemFont_kt4h2")
 
 [sub_resource type="SystemFont" id="SystemFont_6jlt6"]
+subpixel_positioning = 0
 
 [node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_qq3iq")

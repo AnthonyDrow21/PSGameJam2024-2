@@ -1,10 +1,11 @@
-[gd_scene load_steps=54 format=3 uid="uid://qs724ar8c0wb"]
+[gd_scene load_steps=55 format=3 uid="uid://qs724ar8c0wb"]
 
 [ext_resource type="Script" path="res://Elements/ItemDrop.gd" id="1_rps8g"]
 [ext_resource type="Texture2D" uid="uid://couw2cxhrviu6" path="res://Assets/Items/Potions/Large Jar - TURQUOISE - Spritesheet.png" id="2_570ab"]
 [ext_resource type="Texture2D" uid="uid://mg4mtogglcmy" path="res://Assets/Items/Potions/Classic Jar - BLACK - Spritesheet.png" id="3_nbxx7"]
 [ext_resource type="AudioStream" uid="uid://b3gxlcti7jgb4" path="res://Assets/Sounds/Bubble3.wav" id="4_2sdmu"]
 [ext_resource type="Texture2D" uid="uid://5fmho4f37kcc" path="res://Assets/Items/Potions/Small Vial - PINK - Spritesheet.png" id="4_33a81"]
+[ext_resource type="Texture2D" uid="uid://btcb2kfphwrre" path="res://Assets/Items/journal.png" id="5_y2h4r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jv5fj"]
 atlas = ExtResource("3_nbxx7")
@@ -343,6 +344,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"anim_pink_potion",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_y2h4r")
+}],
+"loop": true,
+"name": &"journal",
 "speed": 5.0
 }]
 

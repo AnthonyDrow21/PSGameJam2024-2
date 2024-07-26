@@ -10,8 +10,6 @@ func reset():
 		assert(get_child_count() == 1) # should only ever have one item in the slot
 		remove_child(get_children()[0])
 
-
-
 func move_item_out_of_slot():
 	remove_child(selectedItem)
 	var inventoryNode = find_parent("InventoryMenu")

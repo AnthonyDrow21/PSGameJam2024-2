@@ -5,10 +5,11 @@ extends CharacterBody2D
 const acceleration = 460
 const max_speed = 500
 
-var id: String
+@export var id: String
 var label: String
 var animationName: String
 
+var _initialized = false
 var player = null
 var being_picked_up = false
 var is_playing = false;
@@ -17,6 +18,9 @@ signal picked_up
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	# If item is placed in the World through Godot UI, we will initialize it here
+	if not _initialized:
+		self.with_id(id)
 	$AnimatedSprite2D.play(animationName)
 
 func _physics_process(delta):
@@ -32,7 +36,9 @@ func _physics_process(delta):
 	move_and_slide()
 
 # Call after instantiate
-func with_id(item_id):	
+func with_id(item_id):
+	_initialized = true
+	
 	var itemDef = ItemDatabase.get_item(item_id)
 	id = itemDef.id
 	label = itemDef.label

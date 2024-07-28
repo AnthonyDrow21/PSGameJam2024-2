@@ -56,12 +56,11 @@ minNumberOfItems = 2
 itemIds = ["green_potion"]
 
 [node name="ItemSpawnZone_PinkPotions" parent="." groups=["SpawnZones"] instance=ExtResource("5_ukgj6")]
-offset_left = 77.0
-offset_top = 516.0
-offset_right = 416.0
-offset_bottom = 591.0
-maxNumberOfItems = 8
-minNumberOfItems = 3
+offset_left = 2619.0
+offset_top = 664.0
+offset_right = 2787.0
+offset_bottom = 742.0
+maxNumberOfItems = 1
 itemIds = ["pink_potion"]
 
 [node name="ItemSpawnZone_BlackPotions" parent="." groups=["SpawnZones"] instance=ExtResource("5_ukgj6")]

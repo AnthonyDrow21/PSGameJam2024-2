@@ -39,15 +39,22 @@ func remove_item_at_idx(idx):
 		inventory.erase(idx)		
 	
 func add_item(item_id, quantity):
-	# Journal pages don't go into the 'inventory', they go into the journal
+	# Journal pages don't go into the 'inventory', they go into the journal (if the journal is found)
 	# TODO: this is funky- we should really have the logic somewhere else like in a dediated scene
 #       for the journal pages, but this works for now... just not extendable.
 	if "journalpage" in item_id:
-		emit_signal("picked_up_journal_page", item_id)
-		return
+		for item in inventory:
+			if inventory[item][0] == "journal":
+				emit_signal("picked_up_journal_page", item_id)
+				return
+		# we don't have the journal yet, add it to the inventory until we get the journal
 	elif "journal" in item_id:
-		# the journal will get put into the inventory, so don't return here.
 		emit_signal("picked_up_journal")
+		# check to see if we have journal pages pending to go into journal
+		for item in inventory:
+			if "journalpage" in inventory[item][0]:
+				emit_signal("picked_up_journal_page", inventory[item][0])
+				inventory.erase(item)
 	
 	# try to find item_id in the inventory already
 	for item in inventory:

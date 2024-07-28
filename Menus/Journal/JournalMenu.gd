@@ -8,6 +8,7 @@ signal toggle_journal(open)
 # e.g. if _current_page == 0, we are viewing page 0 on the left, and 1 on the right
 var _pages = []
 var _left_page_idx = 0
+var _found = false
 
 const PAGE_IDX = 0
 const IS_UNLOCKED_IDX = 1
@@ -21,6 +22,10 @@ func _ready():
 	_pages.append( [load("res://Menus/Journal/Page5.tscn").instantiate(), false] )
 	_pages.append( [load("res://Menus/Journal/Page6.tscn").instantiate(), false] )
 	_update_journal(_left_page_idx)
+
+
+func on_journal_picked_up():
+	_found = true
 
 
 func on_journal_page_picked_up(pagename_item_id):
@@ -84,3 +89,11 @@ func _update_journal(new_left_idx):
 	_update_page($leftPagePanel, new_left_idx)
 	_update_page($rightPagePanel, new_left_idx+1)
 	$pageAudioPlayer.play()
+	
+
+func _input(event):	
+	if _found and event.is_action_pressed("toggle_journal"):
+		if not visible and not get_tree().paused:
+			emit_signal("toggle_journal", true)
+		elif visible:
+			emit_signal("toggle_journal", false)

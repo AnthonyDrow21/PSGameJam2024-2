@@ -4,6 +4,7 @@
 extends Node
 
 signal picked_up_journal_page(pagename)
+signal picked_up_journal
 
 # THIS MUST MATCH NUMBER OF SLOTS IN INVENTORYMENU GRID CONTAINER
 const NUM_INVENTORY_SLOTS = 16
@@ -44,6 +45,9 @@ func add_item(item_id, quantity):
 	if "journalpage" in item_id:
 		emit_signal("picked_up_journal_page", item_id)
 		return
+	elif "journal" in item_id:
+		# the journal will get put into the inventory, so don't return here.
+		emit_signal("picked_up_journal")
 	
 	# try to find item_id in the inventory already
 	for item in inventory:

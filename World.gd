@@ -50,6 +50,7 @@ func _ready():
 		zone._initialize()
 	
 	PlayerInventory.picked_up_journal_page.connect(JOURNAL_MENU.on_journal_page_picked_up)
+	PlayerInventory.picked_up_journal.connect(JOURNAL_MENU.on_journal_picked_up)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://uc81tvqarkao"]
+[gd_scene load_steps=10 format=3 uid="uid://uc81tvqarkao"]
 
 [ext_resource type="PackedScene" uid="uid://djq3261fo0ym0" path="res://Player.tscn" id="1_ll608"]
 [ext_resource type="Script" path="res://World.gd" id="1_tvj70"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bp2iynunt3ucr" path="res://Sheep.tscn" id="6_8a57w"]
 [ext_resource type="PackedScene" uid="uid://dndsgtaw3w7s3" path="res://Textbox.tscn" id="6_ua606"]
 [ext_resource type="PackedScene" uid="uid://qs724ar8c0wb" path="res://Elements/ItemDrop.tscn" id="7_4rhov"]
+[ext_resource type="PackedScene" uid="uid://b0divemgo65sn" path="res://Elements/Gate.tscn" id="9_mvkw7"]
 
 [node name="World" type="Node2D"]
 light_mask = 3
@@ -93,3 +94,6 @@ scale = Vector2(2.775, 2.775)
 [node name="AquaRegiaPage" parent="." instance=ExtResource("7_4rhov")]
 position = Vector2(334, 1582)
 id = "journalpage_aquaregia"
+
+[node name="Gate" parent="." instance=ExtResource("9_mvkw7")]
+position = Vector2(-3, 0)

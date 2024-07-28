@@ -51,6 +51,8 @@ func _ready():
 	
 	PlayerInventory.picked_up_journal_page.connect(JOURNAL_MENU.on_journal_page_picked_up)
 	PlayerInventory.picked_up_journal.connect(JOURNAL_MENU.on_journal_picked_up)
+	
+	$Gate.gate_unlocked.connect($Forrest.on_gate_unlocked)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

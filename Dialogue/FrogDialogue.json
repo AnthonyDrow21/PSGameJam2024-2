@@ -5,4 +5,6 @@
 	{"name": "Sheep", "text": "Baa!"},
 	{"name": "Sheep", "text": "Bleat!"},
 	{"name": "Sheep", "text": "Rizz"},
+	{"name": "Gate Locked", "text": "It's locked... maybe I can craft something to remove it"},
+	{"name": "Gate Unlocked", "text": "It's open!"}
 ]

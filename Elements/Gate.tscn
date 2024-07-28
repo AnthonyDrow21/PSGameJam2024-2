@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://b0divemgo65sn"]
+
+[ext_resource type="Script" path="res://Elements/Gate.gd" id="1_cr64i"]
+[ext_resource type="PackedScene" uid="uid://dndsgtaw3w7s3" path="res://Textbox.tscn" id="3_m64fg"]
+[ext_resource type="AudioStream" uid="uid://du6pmudsqmlgv" path="res://Assets/Sounds/GateUnlock.ogg" id="4_b0krs"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fpk7l"]
+radius = 100.0
+
+[node name="Gate" type="Area2D"]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_cr64i")
+
+[node name="collision" type="CollisionShape2D" parent="."]
+position = Vector2(2808, 853.75)
+shape = SubResource("CircleShape2D_fpk7l")
+
+[node name="Dialogue" parent="." instance=ExtResource("3_m64fg")]
+
+[node name="audioUnlock" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_b0krs")

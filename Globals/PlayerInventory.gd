@@ -14,6 +14,13 @@ const NUM_INVENTORY_SLOTS = 16
 var inventory = {
 	}
 
+
+func find_item(item_id):
+	for item in inventory:
+		if inventory[item][0] == item_id:
+			return inventory[item]
+	return null
+
 func add_item_at_idx(idx, item_id, quantity):
 	if inventory.has(idx):
 		print("ERROR: idx ", idx, " already has item, but passed to PlayerInventory.add_item_at_idx")
@@ -43,14 +50,14 @@ func add_item(item_id, quantity):
 	# TODO: this is funky- we should really have the logic somewhere else like in a dediated scene
 #       for the journal pages, but this works for now... just not extendable.
 	if "journalpage" in item_id:
-		for item in inventory:
-			if inventory[item][0] == "journal":
-				emit_signal("picked_up_journal_page", item_id)
-				return
+		var journal = find_item("journal")
+		if journal:
+			emit_signal("picked_up_journal_page", item_id)
+			return
 		# we don't have the journal yet, add it to the inventory until we get the journal
 	elif "journal" in item_id:
 		emit_signal("picked_up_journal")
-		# check to see if we have journal pages pending to go into journal
+		# check to see if we have journal pages pending to go into journal		
 		for item in inventory:
 			if "journalpage" in inventory[item][0]:
 				emit_signal("picked_up_journal_page", inventory[item][0])

@@ -1,29 +1,34 @@
-[gd_scene load_steps=13 format=3 uid="uid://m5diy6bljc6v"]
+[gd_scene load_steps=16 format=3 uid="uid://m5diy6bljc6v"]
 
-[ext_resource type="Script" path="res://Menus/JournalMenu.gd" id="1_8kf0s"]
-[ext_resource type="Texture2D" uid="uid://bvm2rjloe8v3b" path="res://Assets/UI/Journal/journal.png" id="1_bwdqm"]
-[ext_resource type="Texture2D" uid="uid://brmb83130v0wb" path="res://Assets/UI/Journal/return_idle.png" id="2_rrswj"]
-[ext_resource type="Texture2D" uid="uid://dddl1r4t0ubof" path="res://Assets/UI/Journal/return_hover.png" id="3_242r0"]
-[ext_resource type="Texture2D" uid="uid://ghnf37x6jqx0" path="res://Assets/UI/Journal/button_idle.png" id="4_uvyc7"]
-[ext_resource type="Texture2D" uid="uid://dmugedpd2vk1h" path="res://Assets/UI/Journal/button_hover.png" id="5_hyp7j"]
+[ext_resource type="Script" path="res://Menus/Journal/JournalMenu.gd" id="1_pptd5"]
+[ext_resource type="Texture2D" uid="uid://bvm2rjloe8v3b" path="res://Assets/UI/Journal/journal.png" id="2_2ydmi"]
+[ext_resource type="Texture2D" uid="uid://brmb83130v0wb" path="res://Assets/UI/Journal/return_idle.png" id="3_hgn7j"]
+[ext_resource type="Texture2D" uid="uid://dddl1r4t0ubof" path="res://Assets/UI/Journal/return_hover.png" id="4_f2lxb"]
+[ext_resource type="Texture2D" uid="uid://ghnf37x6jqx0" path="res://Assets/UI/Journal/button_idle.png" id="5_ravqd"]
+[ext_resource type="Texture2D" uid="uid://dmugedpd2vk1h" path="res://Assets/UI/Journal/button_hover.png" id="6_qg4sp"]
+[ext_resource type="AudioStream" uid="uid://osroevghc4k1" path="res://Assets/Sounds/JournalPickup.ogg" id="7_e7qhe"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nk15x"]
-texture = ExtResource("2_rrswj")
+texture = ExtResource("3_hgn7j")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m124j"]
-texture = ExtResource("3_242r0")
+texture = ExtResource("4_f2lxb")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rnbxt"]
-texture = ExtResource("3_242r0")
+texture = ExtResource("4_f2lxb")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kug0c"]
-texture = ExtResource("4_uvyc7")
+texture = ExtResource("5_ravqd")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iocke"]
-texture = ExtResource("5_hyp7j")
+texture = ExtResource("6_qg4sp")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m8rmy"]
-texture = ExtResource("5_hyp7j")
+texture = ExtResource("6_qg4sp")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dhd6p"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c3h7n"]
 
 [node name="JournalMenu" type="Control"]
 process_mode = 3
@@ -34,7 +39,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_8kf0s")
+script = ExtResource("1_pptd5")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -43,7 +48,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_bwdqm")
+texture = ExtResource("2_2ydmi")
 expand_mode = 3
 stretch_mode = 5
 
@@ -89,4 +94,25 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_iocke")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_m8rmy")
 text = "<"
 
+[node name="leftPagePanel" type="PanelContainer" parent="."]
+layout_mode = 2
+offset_left = 282.0
+offset_top = 117.0
+offset_right = 557.0
+offset_bottom = 492.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_dhd6p")
+
+[node name="rightPagePanel" type="PanelContainer" parent="."]
+layout_mode = 2
+offset_left = 588.0
+offset_top = 117.0
+offset_right = 863.0
+offset_bottom = 492.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_c3h7n")
+
+[node name="pageAudioPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_e7qhe")
+
 [connection signal="pressed" from="exitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="nextButton" to="." method="_on_next_button_pressed"]
+[connection signal="pressed" from="previousButton" to="." method="_on_previous_button_pressed"]

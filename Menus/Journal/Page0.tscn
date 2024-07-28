@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://dn4oag4c4cw7e"]
+
+[ext_resource type="Texture2D" uid="uid://d3tb1c2vkerf3" path="res://Assets/UI/Journal/wizard.png" id="1_bk3i2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7naka"]
+
+[node name="Page0" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -877.0
+offset_bottom = -273.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_7naka")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -100.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_bk3i2")
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "This journal belongs to Sir George the alchemical master"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2

@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://cgr3qobv1d7af"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_du0dr"]
+
+[node name="Page4" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -877.0
+offset_bottom = -273.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_du0dr")
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -48.5
+offset_bottom = 48.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "This page seems to be missing..."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2

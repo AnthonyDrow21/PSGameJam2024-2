@@ -4,7 +4,7 @@ var ItemDrop = preload("res://Elements/ItemDrop.tscn")
 
 var CRAFTING_MENU = preload("res://Menus/CraftingMenu.tscn").instantiate()
 var INVENTORY_MENU = preload("res://Menus/InventoryMenu.tscn").instantiate()
-var JOURNAL_MENU = preload("res://Menus/JournalMenu.tscn").instantiate()
+var JOURNAL_MENU = preload("res://Menus/Journal/JournalMenu.tscn").instantiate()
 var PAUSE_MENU = preload("res://Menus/PauseMenu.tscn").instantiate()
 
 var Menus_Hidden = []

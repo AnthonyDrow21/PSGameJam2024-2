@@ -14,7 +14,6 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var animations = {IDLE: "idle", RUNNING: "running", CHARGE: "charge", DAMAGE: "damage"}
 var current_animation = IDLE;
 
-
 func player_pickup_item():
 	# Pick up an item
 	if $PickupZone.items_in_range.size() > 0:

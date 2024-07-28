@@ -89,3 +89,7 @@ id = "journal"
 [node name="Sheep" parent="." instance=ExtResource("6_8a57w")]
 position = Vector2(166, 367)
 scale = Vector2(2.775, 2.775)
+
+[node name="AquaRegiaPage" parent="." instance=ExtResource("7_4rhov")]
+position = Vector2(923, 334)
+id = "journalpage_aquaregia"

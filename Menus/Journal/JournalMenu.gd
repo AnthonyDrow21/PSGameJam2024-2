@@ -23,9 +23,25 @@ func _ready():
 	_update_journal(_left_page_idx)
 
 
+func on_journal_page_picked_up(pagename_item_id):
+	# ItemDef id -> page index mapping
+	if pagename_item_id == "journalpage_aquaregia":
+		unlock_page(4)
+	else:
+		print("ERROR: Unkown journal page'", pagename_item_id, "' picked up")
+		return
+
 func unlock_page(page_idx):
 	assert(page_idx >= 0 and page_idx <= _pages.size())
-	_pages[page_idx][IS_UNLOCKED_IDX] = false
+	_pages[page_idx][IS_UNLOCKED_IDX] = true
+	
+	if page_idx % 2 == 0:
+		_left_page_idx = page_idx
+	else:
+		_left_page_idx = page_idx - 1
+
+	_update_journal(_left_page_idx)	
+	print("unlocked journal page ", page_idx)
 
 
 func _on_exit_button_pressed():

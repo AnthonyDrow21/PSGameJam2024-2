@@ -48,6 +48,8 @@ func _ready():
 	# initialize spawn zones
 	for zone in get_tree().get_nodes_in_group("SpawnZones"):
 		zone._initialize()
+	
+	PlayerInventory.picked_up_journal_page.connect(JOURNAL_MENU.on_journal_page_picked_up)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

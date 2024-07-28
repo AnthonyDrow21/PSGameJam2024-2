@@ -89,7 +89,7 @@ func _update_journal(new_left_idx):
 	_update_page($leftPagePanel, new_left_idx)
 	_update_page($rightPagePanel, new_left_idx+1)
 	
-	if not _found:
+	if _found:
 		$pageAudioPlayer.play()
 
 func _input(event):	

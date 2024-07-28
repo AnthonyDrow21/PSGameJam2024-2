@@ -9,7 +9,6 @@ func _on_resume_button_pressed():
 
 
 func _on_restart_button_pressed():
-	emit_signal("toggle_pause", false)
 	emit_signal("restart_requested")
 
 

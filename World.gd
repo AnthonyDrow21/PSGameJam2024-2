@@ -96,6 +96,7 @@ func toggle_pause(is_paused):
 	get_tree().paused = paused
 	
 func on_restart():
+	toggle_pause(false)
 	PlayerInventory.reset()
 	get_tree().change_scene_to_file("res://World.tscn")
 	

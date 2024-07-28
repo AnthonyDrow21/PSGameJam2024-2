@@ -88,8 +88,9 @@ func _update_journal(new_left_idx):
 	assert(new_left_idx < _pages.size())
 	_update_page($leftPagePanel, new_left_idx)
 	_update_page($rightPagePanel, new_left_idx+1)
-	$pageAudioPlayer.play()
 	
+	if not _found:
+		$pageAudioPlayer.play()
 
 func _input(event):	
 	if _found and event.is_action_pressed("toggle_journal"):

@@ -1,20 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://dk3r020dii3t7"]
+[gd_scene load_steps=5 format=3 uid="uid://dk3r020dii3t7"]
 
 [ext_resource type="Script" path="res://Menus/OptionsMenu.gd" id="1_coi67"]
+[ext_resource type="Theme" uid="uid://bw5ts6b6l21li" path="res://Assets/UI/theme.tres" id="2_fjok8"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p6hlv"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7nls8"]
+load_path = "res://.godot/imported/menu_background.png-727f08996766bb3dc5f5e9cea815e283.ctex"
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6a181"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2mv1b"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_om52p"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vby2u"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ss5np"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_83idq"]
 
 [node name="OptionsMenu" type="Control"]
 layout_mode = 3
@@ -25,16 +17,23 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_coi67")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -335.0
+offset_top = -258.5
+offset_right = 335.0
+offset_bottom = 258.5
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.647059, 0.596078, 0.411765, 0.588235)
+theme = ExtResource("2_fjok8")
+texture = SubResource("CompressedTexture2D_7nls8")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -49,24 +48,19 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 11
 
-[node name="GridContainer" type="GridContainer" parent="ColorRect/VBoxContainer"]
+[node name="GridContainer" type="GridContainer" parent="TextureRect/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/h_separation = 25
 theme_override_constants/v_separation = 10
 columns = 2
 
-[node name="Label" type="Label" parent="ColorRect/VBoxContainer/GridContainer"]
+[node name="Label" type="Label" parent="TextureRect/VBoxContainer/GridContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.270588, 0.247059, 0.105882, 1)
-theme_override_font_sizes/font_size = 28
 text = "Difficulty
 "
 
-[node name="difficultyButton" type="OptionButton" parent="ColorRect/VBoxContainer/GridContainer"]
+[node name="difficultyButton" type="OptionButton" parent="TextureRect/VBoxContainer/GridContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.898039, 0.870588, 0.701961, 1)
-theme_override_font_sizes/font_size = 28
-theme_override_styles/focus = SubResource("StyleBoxEmpty_p6hlv")
 item_count = 3
 selected = 1
 popup/item_0/text = "Easy"
@@ -76,36 +70,23 @@ popup/item_1/id = 1
 popup/item_2/text = "Hard"
 popup/item_2/id = 2
 
-[node name="Label2" type="Label" parent="ColorRect/VBoxContainer/GridContainer"]
+[node name="Label2" type="Label" parent="TextureRect/VBoxContainer/GridContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.270588, 0.247059, 0.105882, 1)
-theme_override_font_sizes/font_size = 28
 text = "Developer Mode"
 
-[node name="developerModeButton" type="CheckButton" parent="ColorRect/VBoxContainer/GridContainer"]
+[node name="developerModeButton" type="CheckButton" parent="TextureRect/VBoxContainer/GridContainer"]
 layout_mode = 2
 icon_alignment = 1
 
-[node name="HSeparator" type="HSeparator" parent="ColorRect/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="TextureRect/VBoxContainer"]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxEmpty_6a181")
 
-[node name="backButton" type="Button" parent="ColorRect/VBoxContainer"]
+[node name="backButton" type="Button" parent="TextureRect/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.898039, 0.870588, 0.701961, 1)
-theme_override_colors/font_pressed_color = Color(0.270588, 0.247059, 0.105882, 1)
-theme_override_colors/font_hover_color = Color(0.270588, 0.247059, 0.105882, 1)
-theme_override_colors/font_focus_color = Color(0.270588, 0.247059, 0.105882, 1)
-theme_override_colors/font_hover_pressed_color = Color(0.270588, 0.247059, 0.105882, 1)
-theme_override_font_sizes/font_size = 36
-theme_override_styles/normal = SubResource("StyleBoxEmpty_2mv1b")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_om52p")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_vby2u")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_ss5np")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_83idq")
 text = "Done"
 
-[connection signal="item_selected" from="ColorRect/VBoxContainer/GridContainer/difficultyButton" to="." method="_on_difficulty_button_item_selected"]
-[connection signal="toggled" from="ColorRect/VBoxContainer/GridContainer/developerModeButton" to="." method="_on_developer_mode_button_toggled"]
-[connection signal="pressed" from="ColorRect/VBoxContainer/backButton" to="." method="_on_back_button_pressed"]
+[connection signal="item_selected" from="TextureRect/VBoxContainer/GridContainer/difficultyButton" to="." method="_on_difficulty_button_item_selected"]
+[connection signal="toggled" from="TextureRect/VBoxContainer/GridContainer/developerModeButton" to="." method="_on_developer_mode_button_toggled"]
+[connection signal="pressed" from="TextureRect/VBoxContainer/backButton" to="." method="_on_back_button_pressed"]

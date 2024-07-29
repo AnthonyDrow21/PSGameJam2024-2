@@ -1,19 +1,17 @@
 [gd_scene load_steps=7 format=3 uid="uid://dndsgtaw3w7s3"]
 
 [ext_resource type="Script" path="res://Textbox.gd" id="1_qq3iq"]
-[ext_resource type="Texture2D" uid="uid://ch46dph3tut8c" path="res://Assets/UI/text_frame.png" id="2_0lflg"]
+[ext_resource type="Theme" uid="uid://bw5ts6b6l21li" path="res://Assets/UI/theme.tres" id="3_cf1p3"]
+[ext_resource type="Texture2D" uid="uid://b4gbf2ay4ii24" path="res://Assets/UI/Elements/button_normal.png" id="3_mstf5"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eovbo"]
-texture = ExtResource("2_0lflg")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b378x"]
+texture = ExtResource("3_mstf5")
 
 [sub_resource type="SystemFont" id="SystemFont_kt4h2"]
 subpixel_positioning = 0
 
 [sub_resource type="Theme" id="Theme_k5xat"]
 Textbox/fonts/GameText = SubResource("SystemFont_kt4h2")
-
-[sub_resource type="SystemFont" id="SystemFont_6jlt6"]
-subpixel_positioning = 0
 
 [node name="Dialogue" type="CanvasLayer"]
 script = ExtResource("1_qq3iq")
@@ -27,6 +25,7 @@ anchor_bottom = 1.0
 offset_top = -139.0
 grow_horizontal = 2
 grow_vertical = 0
+theme = ExtResource("3_cf1p3")
 theme_override_constants/margin_left = 240
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 240
@@ -34,7 +33,7 @@ theme_override_constants/margin_bottom = 10
 
 [node name="Panel" type="Panel" parent="OuterMarginContainer"]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_eovbo")
+theme_override_styles/panel = SubResource("StyleBoxTexture_b378x")
 
 [node name="MarginContainer" type="MarginContainer" parent="OuterMarginContainer/Panel"]
 layout_mode = 1
@@ -57,7 +56,7 @@ alignment = 1
 layout_mode = 2
 size_flags_vertical = 0
 theme = SubResource("Theme_k5xat")
-theme_override_colors/font_color = Color(0.270588, 0.247059, 0.105882, 1)
+theme_override_colors/font_color = Color(0.141176, 0.156863, 0.196078, 1)
 theme_override_font_sizes/font_size = 27
 text = "
 "
@@ -66,14 +65,13 @@ text = "
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
-theme_override_colors/font_color = Color(0.270588, 0.247059, 0.105882, 1)
-theme_override_fonts/font = SubResource("SystemFont_6jlt6")
-theme_override_font_sizes/font_size = 27
+theme_override_colors/font_color = Color(0.141176, 0.156863, 0.196078, 1)
+theme_override_font_sizes/font_size = 26
 autowrap_mode = 2
 
 [node name="End" type="Label" parent="OuterMarginContainer/Panel/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
-theme_override_colors/font_color = Color(0.270588, 0.247059, 0.105882, 1)
+theme_override_colors/font_color = Color(0.141176, 0.156863, 0.196078, 1)
 theme_override_font_sizes/font_size = 27

@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://bubjcl2laghup"]
+[gd_scene load_steps=7 format=3 uid="uid://bubjcl2laghup"]
 
+[ext_resource type="Theme" uid="uid://bw5ts6b6l21li" path="res://Assets/UI/theme.tres" id="1_1ytq7"]
 [ext_resource type="Script" path="res://Menus/InventoryMenuSlot.gd" id="1_l56dj"]
 [ext_resource type="Script" path="res://Menus/InventoryMenu.gd" id="1_wgjsp"]
+[ext_resource type="Texture2D" uid="uid://urqa8xb41jd3" path="res://Assets/UI/Elements/ingame_menu_background.png" id="2_hf5el"]
+[ext_resource type="Texture2D" uid="uid://cqwjvehhxh2ed" path="res://Assets/UI/Elements/menu_slot.png" id="3_bwytr"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ka1lp"]
-bg_color = Color(0.270588, 0.247059, 0.105882, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u3ygp"]
+texture = ExtResource("3_bwytr")
 
 [node name="InventoryMenu" type="Control"]
 process_mode = 3
@@ -14,32 +17,33 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_1ytq7")
 script = ExtResource("1_wgjsp")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -255.5
-offset_top = -151.0
-offset_right = 255.5
-offset_bottom = 151.0
+offset_left = -309.0
+offset_top = -234.0
+offset_right = 309.0
+offset_bottom = 234.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.647059, 0.596078, 0.407843, 1)
+texture = ExtResource("2_hf5el")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ColorRect"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 10.0
-offset_top = 13.0
-offset_right = -10.0
-offset_bottom = -11.0
+offset_left = 85.0
+offset_top = 92.0
+offset_right = -70.0
+offset_bottom = -85.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 15
@@ -58,97 +62,97 @@ custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_styles/panel = SubResource("StyleBoxFlat_ka1lp")
+theme_override_styles/panel = SubResource("StyleBoxTexture_u3ygp")
 script = ExtResource("1_l56dj")
 
 [node name="Slot2" type="Panel" parent="ColorRect/HBoxContainer/GridContainer"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_ka1lp")
+theme_override_styles/panel = SubResource("StyleBoxTexture_u3ygp")
 script = ExtResource("1_l56dj")
 
 [node name="Slot3" type="Panel" parent="ColorRect/HBoxContainer/GridContainer"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_ka1lp")
+theme_override_styles/panel = SubResource("StyleBoxTexture_u3ygp")
 script = ExtResource("1_l56dj")
 
 [node name="Slot4" type="Panel" parent="ColorRect/HBoxContainer/GridContainer"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_ka1lp")
+theme_override_styles/panel = SubResource("StyleBoxTexture_u3ygp")
 script = ExtResource("1_l56dj")
 
 [node name="Slot5" type="Panel" parent="ColorRect/HBoxContainer/GridContainer"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_ka1lp")
+theme_override_styles/panel = SubResource("StyleBoxTexture_u3ygp")
 script = ExtResource("1_l56dj")
 
 [node name="Slot6" type="Panel" parent="ColorRect/HBoxContainer/GridContainer"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_ka1lp")
+theme_override_styles/panel = SubResource("StyleBoxTexture_u3ygp")
 script = ExtResource("1_l56dj")
 
 [node name="Slot7" type="Panel" parent="ColorRect/HBoxContainer/GridContainer"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_ka1lp")
+theme_override_styles/panel = SubResource("StyleBoxTexture_u3ygp")
 script = ExtResource("1_l56dj")
 
 [node name="Slot8" type="Panel" parent="ColorRect/HBoxContainer/GridContainer"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_ka1lp")
+theme_override_styles/panel = SubResource("StyleBoxTexture_u3ygp")
 script = ExtResource("1_l56dj")
 
 [node name="Slot9" type="Panel" parent="ColorRect/HBoxContainer/GridContainer"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_ka1lp")
+theme_override_styles/panel = SubResource("StyleBoxTexture_u3ygp")
 script = ExtResource("1_l56dj")
 
 [node name="Slot10" type="Panel" parent="ColorRect/HBoxContainer/GridContainer"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_ka1lp")
+theme_override_styles/panel = SubResource("StyleBoxTexture_u3ygp")
 script = ExtResource("1_l56dj")
 
 [node name="Slot11" type="Panel" parent="ColorRect/HBoxContainer/GridContainer"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_ka1lp")
+theme_override_styles/panel = SubResource("StyleBoxTexture_u3ygp")
 script = ExtResource("1_l56dj")
 
 [node name="Slot12" type="Panel" parent="ColorRect/HBoxContainer/GridContainer"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_ka1lp")
+theme_override_styles/panel = SubResource("StyleBoxTexture_u3ygp")
 script = ExtResource("1_l56dj")
 
 [node name="Slot13" type="Panel" parent="ColorRect/HBoxContainer/GridContainer"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_ka1lp")
+theme_override_styles/panel = SubResource("StyleBoxTexture_u3ygp")
 script = ExtResource("1_l56dj")
 
 [node name="Slot14" type="Panel" parent="ColorRect/HBoxContainer/GridContainer"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_ka1lp")
+theme_override_styles/panel = SubResource("StyleBoxTexture_u3ygp")
 script = ExtResource("1_l56dj")
 
 [node name="Slot15" type="Panel" parent="ColorRect/HBoxContainer/GridContainer"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_ka1lp")
+theme_override_styles/panel = SubResource("StyleBoxTexture_u3ygp")
 script = ExtResource("1_l56dj")
 
 [node name="Slot16" type="Panel" parent="ColorRect/HBoxContainer/GridContainer"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_ka1lp")
+theme_override_styles/panel = SubResource("StyleBoxTexture_u3ygp")
 script = ExtResource("1_l56dj")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/HBoxContainer"]
@@ -164,22 +168,21 @@ stretch_mode = 5
 
 [node name="itemLabel" type="Label" parent="ColorRect/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.270588, 0.247059, 0.105882, 1)
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 20
 text = "Item Label"
 horizontal_alignment = 1
 
 [node name="itemDescription" type="Label" parent="ColorRect/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-theme_override_colors/font_color = Color(0.270588, 0.247059, 0.105882, 1)
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 14
 text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
 horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="openButton" type="Button" parent="ColorRect/HBoxContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 16
 text = "Read"
 
 [connection signal="pressed" from="ColorRect/HBoxContainer/VBoxContainer/openButton" to="." method="_on_open_button_pressed"]

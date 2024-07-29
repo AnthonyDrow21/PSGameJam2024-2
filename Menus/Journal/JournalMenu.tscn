@@ -1,118 +1,206 @@
-[gd_scene load_steps=16 format=3 uid="uid://m5diy6bljc6v"]
+[gd_scene load_steps=20 format=3 uid="uid://m5diy6bljc6v"]
 
 [ext_resource type="Script" path="res://Menus/Journal/JournalMenu.gd" id="1_pptd5"]
-[ext_resource type="Texture2D" uid="uid://bvm2rjloe8v3b" path="res://Assets/UI/Journal/journal.png" id="2_2ydmi"]
-[ext_resource type="Texture2D" uid="uid://brmb83130v0wb" path="res://Assets/UI/Journal/return_idle.png" id="3_hgn7j"]
-[ext_resource type="Texture2D" uid="uid://dddl1r4t0ubof" path="res://Assets/UI/Journal/return_hover.png" id="4_f2lxb"]
-[ext_resource type="Texture2D" uid="uid://ghnf37x6jqx0" path="res://Assets/UI/Journal/button_idle.png" id="5_ravqd"]
-[ext_resource type="Texture2D" uid="uid://dmugedpd2vk1h" path="res://Assets/UI/Journal/button_hover.png" id="6_qg4sp"]
-[ext_resource type="AudioStream" uid="uid://osroevghc4k1" path="res://Assets/Sounds/JournalPickup.ogg" id="7_e7qhe"]
+[ext_resource type="Texture2D" uid="uid://u4ut87nl4uej" path="res://Assets/UI/Elements/menu_background.png" id="2_16ter"]
+[ext_resource type="AudioStream" uid="uid://bvdmi14y6hhoi" path="res://Assets/Sounds/JournalPageTurn.wav" id="3_jxdj4"]
+[ext_resource type="Texture2D" uid="uid://cmub3axsrdn08" path="res://Assets/UI/Journal/journal_page.png" id="3_ncwqa"]
+[ext_resource type="Texture2D" uid="uid://bqi1511dmgmw8" path="res://Assets/UI/Journal/button_left.png" id="4_rwypy"]
+[ext_resource type="Texture2D" uid="uid://caj6qwhqeiefw" path="res://Assets/UI/Journal/button_right.png" id="5_v77ca"]
+[ext_resource type="Theme" uid="uid://bojuikabked6y" path="res://Assets/UI/Journal/journal_theme.tres" id="6_byl0r"]
+[ext_resource type="Theme" uid="uid://bw5ts6b6l21li" path="res://Assets/UI/theme.tres" id="6_vdup5"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nk15x"]
-texture = ExtResource("3_hgn7j")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v7nj4"]
+texture = ExtResource("4_rwypy")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m124j"]
-texture = ExtResource("4_f2lxb")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4c6bf"]
+texture = ExtResource("4_rwypy")
+modulate_color = Color(0.443137, 0.443137, 0.443137, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rnbxt"]
-texture = ExtResource("4_f2lxb")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7550q"]
+texture = ExtResource("4_rwypy")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kug0c"]
-texture = ExtResource("5_ravqd")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ovxy7"]
+texture = ExtResource("4_rwypy")
+modulate_color = Color(0.443137, 0.443137, 0.443137, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iocke"]
-texture = ExtResource("6_qg4sp")
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5dln3"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m8rmy"]
-texture = ExtResource("6_qg4sp")
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bloml"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dhd6p"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h55y5"]
+texture = ExtResource("5_v77ca")
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c3h7n"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s7ann"]
+texture = ExtResource("5_v77ca")
+modulate_color = Color(0.443137, 0.443137, 0.443137, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_if6mt"]
+texture = ExtResource("5_v77ca")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s2bt8"]
+texture = ExtResource("5_v77ca")
+modulate_color = Color(0.443137, 0.443137, 0.443137, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bv3uj"]
 
 [node name="JournalMenu" type="Control"]
 process_mode = 3
 z_index = 2
+custom_minimum_size = Vector2(1000, 500)
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500.0
+offset_top = -250.0
+offset_right = 500.0
+offset_bottom = 250.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_pptd5")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TextureRect2" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_2ydmi")
-expand_mode = 3
-stretch_mode = 5
-
-[node name="exitButton" type="Button" parent="."]
-layout_mode = 0
-offset_left = 869.0
-offset_top = 111.0
-offset_right = 907.0
-offset_bottom = 148.0
-theme_override_styles/normal = SubResource("StyleBoxTexture_nk15x")
-theme_override_styles/hover = SubResource("StyleBoxTexture_m124j")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_rnbxt")
-
-[node name="nextButton" type="Button" parent="."]
-layout_mode = 0
-offset_left = 864.0
-offset_top = 499.0
-offset_right = 914.0
-offset_bottom = 536.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_styles/normal = SubResource("StyleBoxTexture_kug0c")
-theme_override_styles/hover = SubResource("StyleBoxTexture_iocke")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_m8rmy")
-text = ">"
-
-[node name="previousButton" type="Button" parent="."]
-layout_mode = 0
-offset_left = 227.0
-offset_top = 499.0
-offset_right = 277.0
-offset_bottom = 536.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_styles/normal = SubResource("StyleBoxTexture_kug0c")
-theme_override_styles/hover = SubResource("StyleBoxTexture_iocke")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_m8rmy")
-text = "<"
-
-[node name="leftPagePanel" type="PanelContainer" parent="."]
-layout_mode = 2
-offset_left = 282.0
-offset_top = 117.0
-offset_right = 557.0
-offset_bottom = 492.0
-theme_override_styles/panel = SubResource("StyleBoxEmpty_dhd6p")
-
-[node name="rightPagePanel" type="PanelContainer" parent="."]
-layout_mode = 2
-offset_left = 588.0
-offset_top = 117.0
-offset_right = 863.0
-offset_bottom = 492.0
-theme_override_styles/panel = SubResource("StyleBoxEmpty_c3h7n")
+size_flags_horizontal = 3
+texture = ExtResource("2_16ter")
 
 [node name="pageAudioPlayer" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("7_e7qhe")
+stream = ExtResource("3_jxdj4")
 
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = -10
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer2/MarginContainer"]
+layout_mode = 2
+
+[node name="prevButton" type="Button" parent="HBoxContainer2/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxTexture_v7nj4")
+theme_override_styles/hover = SubResource("StyleBoxTexture_4c6bf")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_7550q")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_ovxy7")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5dln3")
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer2/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("3_ncwqa")
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer2/MarginContainer/HBoxContainer/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer2/MarginContainer/HBoxContainer/TextureRect/MarginContainer"]
+layout_mode = 2
+
+[node name="leftPanelContainer" type="PanelContainer" parent="HBoxContainer2/MarginContainer/HBoxContainer/TextureRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_bloml")
+
+[node name="leftPageNumber" type="Label" parent="HBoxContainer2/MarginContainer/HBoxContainer/TextureRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("6_byl0r")
+text = "1"
+horizontal_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 50
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer2/MarginContainer2"]
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="HBoxContainer2/MarginContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("3_ncwqa")
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer2/MarginContainer2/HBoxContainer/TextureRect2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer2/MarginContainer2/HBoxContainer/TextureRect2/MarginContainer"]
+layout_mode = 2
+
+[node name="rightPanelContainer" type="PanelContainer" parent="HBoxContainer2/MarginContainer2/HBoxContainer/TextureRect2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_bloml")
+
+[node name="rightPageNumber" type="Label" parent="HBoxContainer2/MarginContainer2/HBoxContainer/TextureRect2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("6_byl0r")
+text = "2"
+horizontal_alignment = 1
+
+[node name="nextButton" type="Button" parent="HBoxContainer2/MarginContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxTexture_h55y5")
+theme_override_styles/hover = SubResource("StyleBoxTexture_s7ann")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_if6mt")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_s2bt8")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_bv3uj")
+
+[node name="exitButton" type="Button" parent="."]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -50.0
+offset_bottom = 50.0
+grow_horizontal = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("6_vdup5")
+text = "X"
+
+[connection signal="pressed" from="HBoxContainer2/MarginContainer/HBoxContainer/prevButton" to="." method="_on_previous_button_pressed"]
+[connection signal="pressed" from="HBoxContainer2/MarginContainer2/HBoxContainer/nextButton" to="." method="_on_next_button_pressed"]
 [connection signal="pressed" from="exitButton" to="." method="_on_exit_button_pressed"]
-[connection signal="pressed" from="nextButton" to="." method="_on_next_button_pressed"]
-[connection signal="pressed" from="previousButton" to="." method="_on_previous_button_pressed"]

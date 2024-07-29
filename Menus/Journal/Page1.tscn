@@ -1,50 +1,44 @@
-[gd_scene load_steps=2 format=3 uid="uid://chh0dn5dcvd00"]
+[gd_scene load_steps=3 format=3 uid="uid://epa84epuh47n"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_du0dr"]
+[ext_resource type="Theme" uid="uid://bojuikabked6y" path="res://Assets/UI/Journal/journal_theme.tres" id="1_q32rt"]
 
-[node name="Page1" type="Panel"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7naka"]
+
+[node name="Page0" type="Panel"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -877.0
-offset_bottom = -273.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxEmpty_du0dr")
+theme = ExtResource("1_q32rt")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_7naka")
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_left = 1.0
-offset_top = 28.0
-offset_right = 1.0
-offset_bottom = 62.0
-grow_horizontal = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 24
-text = "Contents"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
-
-[node name="Label2" type="Label" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_top = -8.5
-offset_bottom = 8.5
+offset_top = -93.5
+offset_bottom = 93.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 12
-text = "Page 2   . . . . . . . . . . . . . . . . . Research Notes
-Page 4 . . . . . . . . . . . . . . . . . . . . . . Aqua Regia
-Page 5 . . . . . . . . . . . . . . . . . . . . . . . . Quicksilver
-Page 6 . . . . . . . . . . . . . . . . . . . . . . . . . Black Sulfur
-"
-horizontal_alignment = 3
+theme_override_constants/separation = 10
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Contents"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme = ExtResource("1_q32rt")
+text = "Page 3 . . . . Research Notes
+Page 5 . . . . . . . Aqua Regia
+Page 6 . . . . . . . Quicksilver
+Page 7 . . . . . . Black Sulfur"
+horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2

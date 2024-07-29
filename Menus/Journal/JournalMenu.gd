@@ -69,10 +69,11 @@ func _on_previous_button_pressed():
 	_update_journal(_left_page_idx)
 
 
-func _update_page(panel, page_number):
+func _update_page(panel, label, page_number):
 	# Remove the page in the panel if there is one	
 	if panel.get_child_count() > 0:
 		panel.remove_child(panel.get_child(0))
+		label.text = ""
 	
 	if page_number >= _pages.size():
 		return # Do not try and display the page if it doesn't exist!
@@ -82,12 +83,20 @@ func _update_page(panel, page_number):
 		panel.add_child(MissingPageClass.instantiate())
 	else:
 		panel.add_child(_pages[page_number][PAGE_IDX])
+	label.text = str(page_number + 1)
 
 
 func _update_journal(new_left_idx):
 	assert(new_left_idx < _pages.size())
-	_update_page($leftPagePanel, new_left_idx)
-	_update_page($rightPagePanel, new_left_idx+1)
+	_update_page($HBoxContainer2/MarginContainer/HBoxContainer/TextureRect/MarginContainer/VBoxContainer/leftPanelContainer,
+				 $HBoxContainer2/MarginContainer/HBoxContainer/TextureRect/MarginContainer/VBoxContainer/leftPageNumber,
+				 new_left_idx)
+	_update_page($HBoxContainer2/MarginContainer2/HBoxContainer/TextureRect2/MarginContainer/VBoxContainer/rightPanelContainer,
+				 $HBoxContainer2/MarginContainer2/HBoxContainer/TextureRect2/MarginContainer/VBoxContainer/rightPageNumber,
+				 new_left_idx+1)
+	
+	$HBoxContainer2/MarginContainer/HBoxContainer/prevButton.disabled = (new_left_idx == 0)
+	$HBoxContainer2/MarginContainer2/HBoxContainer/nextButton.disabled = (new_left_idx == _pages.size()-1)
 	
 	if _found:
 		$pageAudioPlayer.play()

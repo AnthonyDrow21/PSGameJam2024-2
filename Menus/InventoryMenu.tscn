@@ -12,26 +12,23 @@ texture = ExtResource("3_bwytr")
 [node name="InventoryMenu" type="Control"]
 process_mode = 3
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
 grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme = ExtResource("1_1ytq7")
 script = ExtResource("1_wgjsp")
 
 [node name="ColorRect" type="TextureRect" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = 4
 anchor_top = 0.5
-anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -309.0
 offset_top = -234.0
-offset_right = 309.0
+offset_right = 618.0
 offset_bottom = 234.0
-grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_hf5el")
 

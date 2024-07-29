@@ -1,41 +1,47 @@
-[gd_scene load_steps=8 format=3 uid="uid://60o8aygmn1k7"]
+[gd_scene load_steps=12 format=3 uid="uid://60o8aygmn1k7"]
 
 [ext_resource type="Script" path="res://Menus/PrimeSlot.gd" id="1_27o7h"]
+[ext_resource type="Theme" uid="uid://bw5ts6b6l21li" path="res://Assets/UI/theme.tres" id="1_63k63"]
+[ext_resource type="Texture2D" uid="uid://urqa8xb41jd3" path="res://Assets/UI/Elements/ingame_menu_background.png" id="1_jnre7"]
 [ext_resource type="Script" path="res://Menus/Sprite2D.gd" id="2_j20pt"]
 [ext_resource type="Script" path="res://Menus/MindButton.gd" id="2_s6wq0"]
 [ext_resource type="Texture2D" uid="uid://dqi1i8bir2eh" path="res://Assets/MenuArt/MindSymbol.png" id="3_7br00"]
+[ext_resource type="Texture2D" uid="uid://cqwjvehhxh2ed" path="res://Assets/UI/Elements/menu_slot.png" id="3_77qb0"]
 [ext_resource type="Texture2D" uid="uid://b1l6ajxc2ch56" path="res://Assets/MenuArt/BodySymbol.png" id="4_r1p1j"]
 [ext_resource type="Texture2D" uid="uid://ct01b67dje3we" path="res://Assets/MenuArt/SpiritSymbol.png" id="5_tydjj"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ka1lp"]
-bg_color = Color(0.270588, 0.247059, 0.105882, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c0ntl"]
+texture = ExtResource("3_77qb0")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_clb3x"]
+texture = ExtResource("3_77qb0")
 
 [node name="CraftingMenu" type="Control"]
 process_mode = 3
 layout_mode = 3
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 0
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 0
+grow_vertical = 2
+theme = ExtResource("1_63k63")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(500, 150)
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -255.5
-offset_top = -160.0
-offset_right = 255.5
-offset_bottom = -10.0
-grow_horizontal = 2
-grow_vertical = 0
-color = Color(0.647059, 0.596078, 0.407843, 1)
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -511.0
+offset_top = -75.0
+offset_bottom = 75.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("1_jnre7")
 
 [node name="GridContainer" type="GridContainer" parent="ColorRect"]
 layout_mode = 2
@@ -51,7 +57,7 @@ columns = 4
 [node name="PrimeSlot" type="Panel" parent="ColorRect/GridContainer"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_ka1lp")
+theme_override_styles/panel = SubResource("StyleBoxTexture_c0ntl")
 script = ExtResource("1_27o7h")
 
 [node name="Sprite2D" type="Sprite2D" parent="ColorRect/GridContainer/PrimeSlot"]
@@ -62,12 +68,12 @@ script = ExtResource("2_j20pt")
 [node name="ElementSlot" type="Panel" parent="ColorRect/GridContainer"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_ka1lp")
+theme_override_styles/panel = SubResource("StyleBoxTexture_clb3x")
 
 [node name="MetalSlot" type="Panel" parent="ColorRect/GridContainer"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_ka1lp")
+theme_override_styles/panel = SubResource("StyleBoxTexture_clb3x")
 
 [node name="selectedItemPanel" type="Panel" parent="ColorRect"]
 layout_mode = 0
@@ -104,6 +110,7 @@ offset_left = 412.0
 offset_top = 76.0
 offset_right = 465.0
 offset_bottom = 114.0
+theme_override_font_sizes/font_size = 16
 text = "BREW"
 expand_icon = true
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://qs724ar8c0wb"]
+[gd_scene load_steps=61 format=3 uid="uid://qs724ar8c0wb"]
 
 [ext_resource type="Script" path="res://Elements/ItemDrop.gd" id="1_rps8g"]
 [ext_resource type="Texture2D" uid="uid://couw2cxhrviu6" path="res://Assets/Items/Potions/Large Jar - TURQUOISE - Spritesheet.png" id="2_570ab"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://b5ksgk6nsyyy1" path="res://Assets/Items/Acid.png" id="5_ckcel"]
 [ext_resource type="Texture2D" uid="uid://bqadeogait41s" path="res://Assets/Items/Clues/AquaRegiaHintImage.png" id="5_i1ao1"]
 [ext_resource type="Texture2D" uid="uid://btcb2kfphwrre" path="res://Assets/Items/journal.png" id="5_y2h4r"]
+[ext_resource type="Texture2D" uid="uid://dq5s0jhgrdtvt" path="res://Assets/Map/Treasure+/Treasure+.png" id="7_a8fhh"]
+[ext_resource type="Texture2D" uid="uid://crtyium4qig1q" path="res://Assets/MiniWorldSprites/Miscellaneous/Well.png" id="9_pkpj8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jv5fj"]
 atlas = ExtResource("3_nbxx7")
@@ -193,6 +195,14 @@ region = Rect2(98, 0, 14, 24)
 atlas = ExtResource("4_33a81")
 region = Rect2(112, 0, 14, 24)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_phgpb"]
+atlas = ExtResource("7_a8fhh")
+region = Rect2(240, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7kbko"]
+atlas = ExtResource("9_pkpj8")
+region = Rect2(16, 16, 16, 16)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_ip55x"]
 animations = [{
 "frames": [{
@@ -366,10 +376,26 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_phgpb")
+}],
+"loop": true,
+"name": &"gold",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("5_y2h4r")
 }],
 "loop": true,
 "name": &"journal",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7kbko")
+}],
+"loop": true,
+"name": &"water_bucket",
 "speed": 5.0
 }]
 
@@ -386,7 +412,7 @@ light_mask = 2
 visibility_layer = 2
 scale = Vector2(0.894356, 0.782822)
 sprite_frames = SubResource("SpriteFrames_ip55x")
-animation = &"anim_black_potion"
+animation = &"water_bucket"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_5k4qh")

@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cnwhwyqvffjtw" path="res://Maps/Forrest.tscn" id="2_0t12h"]
 [ext_resource type="PackedScene" uid="uid://cd4vunmawu2he" path="res://Frog.tscn" id="3_65jqr"]
 [ext_resource type="PackedScene" uid="uid://te8jlc7c4wpr" path="res://Elements/ItemSpawnZone.tscn" id="5_ukgj6"]
-[ext_resource type="PackedScene" uid="uid://bp2iynunt3ucr" path="res://Sheep.tscn" id="6_8a57w"]
+[ext_resource type="PackedScene" path="res://Sheep.tscn" id="6_8a57w"]
 [ext_resource type="PackedScene" uid="uid://dndsgtaw3w7s3" path="res://Textbox.tscn" id="6_ua606"]
 [ext_resource type="PackedScene" uid="uid://qs724ar8c0wb" path="res://Elements/ItemDrop.tscn" id="7_4rhov"]
 [ext_resource type="PackedScene" uid="uid://b0divemgo65sn" path="res://Elements/Gate.tscn" id="9_mvkw7"]
@@ -97,3 +97,13 @@ id = "journalpage_aquaregia"
 [node name="Gate" parent="." instance=ExtResource("9_mvkw7")]
 position = Vector2(-3, 0)
 item_id_key = "aqua_regia"
+
+[node name="Gold" parent="." instance=ExtResource("7_4rhov")]
+position = Vector2(2515, 121)
+scale = Vector2(2, 2)
+id = "gold_goblet"
+
+[node name="WaterBucket" parent="." instance=ExtResource("7_4rhov")]
+position = Vector2(362, 1578)
+scale = Vector2(4, 4)
+id = "water_bucket"

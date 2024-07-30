@@ -76,6 +76,7 @@ func toggle_inventory_menu(open):
 		CRAFTING_MENU.hide()
 	else:
 		INVENTORY_MENU.prepare_for_show()
+		CRAFTING_MENU.prepare_for_show()
 		INVENTORY_MENU.show()
 		CRAFTING_MENU.show()
 	toggle_pause(open)

@@ -91,6 +91,7 @@ func swap_item_at_slot(from_slot, to_slot):
 	
 func slot_gui_input(event: InputEvent, slot:SlotClass):
 	if event is InputEventMouseButton:
+		print("This is", hoverSlot)
 		# GRABBING ITEM FROM SLOT
 		if event.button_index == MOUSE_BUTTON_LEFT && event.is_pressed():
 			# If we click on a slot, update the view details

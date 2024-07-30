@@ -34,6 +34,7 @@ func _ready():
 	INVENTORY_MENU.hide()
 	
 	add_menu(CRAFTING_MENU) # crafting menu will get toggled with inventory
+	INVENTORY_MENU.send_item_signal.connect(send_item_signal_to_craft)
 	CRAFTING_MENU.hide()
 	
 	add_menu(JOURNAL_MENU)
@@ -76,7 +77,6 @@ func toggle_inventory_menu(open):
 		CRAFTING_MENU.hide()
 	else:
 		INVENTORY_MENU.prepare_for_show()
-		CRAFTING_MENU.prepare_for_show()
 		INVENTORY_MENU.show()
 		CRAFTING_MENU.show()
 	toggle_pause(open)
@@ -106,3 +106,15 @@ func on_game_over(didWin):
 	var gameOverMenu = load("res://Menus/GameOverMenu.tscn").instantiate()
 	gameOverMenu.restart_requested.connect(on_restart)
 	add_menu(gameOverMenu)
+
+func send_item_signal_to_craft(itemID):
+	print("Signal received", itemID)
+	if itemID == "gold_goblet":
+		#Add png to metal slot same as id
+		CRAFTING_MENU.metalSlot = "GOLD"
+	elif itemID == "water_bucket":
+		#add png to element slt same as id
+		CRAFTING_MENU.elementSlot = "WATER"
+	else:
+		print("This doesn't seem to fit in the pot")
+	

@@ -159,6 +159,7 @@ position = Vector2(11, 10)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("5_tydjj")
 
+[connection signal="pressed" from="ColorRect/BrewButton" to="." method="_on_brew_button_pressed"]
 [connection signal="pressed" from="ColorRect/PrimeButtons/MindButton" to="ColorRect/PrimeSlot" method="_on_mind_button_pressed"]
 [connection signal="pressed" from="ColorRect/PrimeButtons/MindButton" to="ColorRect/PrimeSlot/Sprite2D" method="_on_mind_button_pressed"]
 [connection signal="pressed" from="ColorRect/PrimeButtons/BodyButton" to="ColorRect/PrimeSlot/Sprite2D" method="_on_body_button_pressed"]

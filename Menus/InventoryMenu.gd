@@ -4,6 +4,7 @@ extends Control
 
 signal toggle_inventory(open)
 signal toggle_journal(open)
+signal send_item_signal(ItemID)
 const SlotClass = preload("res://Menus/InventoryMenuSlot.gd")
 
 var heldItem = null
@@ -91,7 +92,6 @@ func swap_item_at_slot(from_slot, to_slot):
 	
 func slot_gui_input(event: InputEvent, slot:SlotClass):
 	if event is InputEventMouseButton:
-		print("This is", hoverSlot)
 		# GRABBING ITEM FROM SLOT
 		if event.button_index == MOUSE_BUTTON_LEFT && event.is_pressed():
 			# If we click on a slot, update the view details
@@ -120,6 +120,10 @@ func slot_gui_input(event: InputEvent, slot:SlotClass):
 				move_item_into_empty_slot(slot, hoverSlot)
 			else:
 				swap_item_at_slot(slot, hoverSlot)
+		elif event.button_index == MOUSE_BUTTON_RIGHT:
+			send_item_ID(heldItem)
+			print(heldItem)
+			
 
 func _input(event):
 	if heldItem != null:
@@ -133,3 +137,9 @@ func _input(event):
 
 func _on_open_button_pressed():
 	emit_signal("toggle_journal", true)
+	
+func send_item_ID(item):
+	if heldItem != null:
+		emit_signal("send_item_signal", item.item_id)
+		print(item.item_id)
+	

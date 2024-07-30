@@ -1,14 +1,16 @@
-[gd_scene load_steps=12 format=3 uid="uid://60o8aygmn1k7"]
+[gd_scene load_steps=14 format=3 uid="uid://60o8aygmn1k7"]
 
 [ext_resource type="Script" path="res://Menus/PrimeSlot.gd" id="1_27o7h"]
 [ext_resource type="Theme" uid="uid://bw5ts6b6l21li" path="res://Assets/UI/theme.tres" id="1_63k63"]
 [ext_resource type="Texture2D" uid="uid://urqa8xb41jd3" path="res://Assets/UI/Elements/ingame_menu_background.png" id="1_jnre7"]
+[ext_resource type="Script" path="res://Menus/CraftingMenu.gd" id="2_8c6x3"]
 [ext_resource type="Script" path="res://Menus/Sprite2D.gd" id="2_j20pt"]
 [ext_resource type="Script" path="res://Menus/MindButton.gd" id="2_s6wq0"]
 [ext_resource type="Texture2D" uid="uid://dqi1i8bir2eh" path="res://Assets/MenuArt/MindSymbol.png" id="3_7br00"]
 [ext_resource type="Texture2D" uid="uid://cqwjvehhxh2ed" path="res://Assets/UI/Elements/menu_slot.png" id="3_77qb0"]
 [ext_resource type="Texture2D" uid="uid://b1l6ajxc2ch56" path="res://Assets/MenuArt/BodySymbol.png" id="4_r1p1j"]
 [ext_resource type="Texture2D" uid="uid://ct01b67dje3we" path="res://Assets/MenuArt/SpiritSymbol.png" id="5_tydjj"]
+[ext_resource type="Script" path="res://Menus/CraftingMenuSlot.gd" id="7_xobhx"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c0ntl"]
 texture = ExtResource("3_77qb0")
@@ -27,6 +29,7 @@ anchor_bottom = 0.5
 grow_horizontal = 0
 grow_vertical = 2
 theme = ExtResource("1_63k63")
+script = ExtResource("2_8c6x3")
 
 [node name="ColorRect" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(500, 150)
@@ -43,37 +46,43 @@ grow_horizontal = 0
 grow_vertical = 2
 texture = ExtResource("1_jnre7")
 
-[node name="GridContainer" type="GridContainer" parent="ColorRect"]
+[node name="PrimeSlot" type="Panel" parent="ColorRect"]
+custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 offset_left = 59.995
 offset_top = 45.0
-offset_right = 259.995
+offset_right = 119.995
+offset_bottom = 105.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_c0ntl")
+script = ExtResource("1_27o7h")
+
+[node name="Sprite2D" type="Sprite2D" parent="ColorRect/PrimeSlot"]
+position = Vector2(31.005, 30)
+scale = Vector2(2, 2)
+script = ExtResource("2_j20pt")
+
+[node name="GridContainer" type="GridContainer" parent="ColorRect"]
+layout_mode = 2
+offset_left = 129.0
+offset_top = 45.0
+offset_right = 260.0
 offset_bottom = 120.0
 grow_vertical = 2
 theme_override_constants/h_separation = 10
 theme_override_constants/v_separation = 10
 columns = 4
 
-[node name="PrimeSlot" type="Panel" parent="ColorRect/GridContainer"]
-custom_minimum_size = Vector2(60, 60)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_c0ntl")
-script = ExtResource("1_27o7h")
-
-[node name="Sprite2D" type="Sprite2D" parent="ColorRect/GridContainer/PrimeSlot"]
-position = Vector2(31.005, 30)
-scale = Vector2(2, 2)
-script = ExtResource("2_j20pt")
-
 [node name="ElementSlot" type="Panel" parent="ColorRect/GridContainer"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_clb3x")
+script = ExtResource("7_xobhx")
 
 [node name="MetalSlot" type="Panel" parent="ColorRect/GridContainer"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_clb3x")
+script = ExtResource("7_xobhx")
 
 [node name="selectedItemPanel" type="Panel" parent="ColorRect"]
 layout_mode = 0
@@ -150,7 +159,7 @@ position = Vector2(11, 10)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("5_tydjj")
 
-[connection signal="pressed" from="ColorRect/PrimeButtons/MindButton" to="ColorRect/GridContainer/PrimeSlot" method="_on_mind_button_pressed"]
-[connection signal="pressed" from="ColorRect/PrimeButtons/MindButton" to="ColorRect/GridContainer/PrimeSlot/Sprite2D" method="_on_mind_button_pressed"]
-[connection signal="pressed" from="ColorRect/PrimeButtons/BodyButton" to="ColorRect/GridContainer/PrimeSlot/Sprite2D" method="_on_body_button_pressed"]
-[connection signal="pressed" from="ColorRect/PrimeButtons/SpiritButton" to="ColorRect/GridContainer/PrimeSlot/Sprite2D" method="_on_spirit_button_pressed"]
+[connection signal="pressed" from="ColorRect/PrimeButtons/MindButton" to="ColorRect/PrimeSlot" method="_on_mind_button_pressed"]
+[connection signal="pressed" from="ColorRect/PrimeButtons/MindButton" to="ColorRect/PrimeSlot/Sprite2D" method="_on_mind_button_pressed"]
+[connection signal="pressed" from="ColorRect/PrimeButtons/BodyButton" to="ColorRect/PrimeSlot/Sprite2D" method="_on_body_button_pressed"]
+[connection signal="pressed" from="ColorRect/PrimeButtons/SpiritButton" to="ColorRect/PrimeSlot/Sprite2D" method="_on_spirit_button_pressed"]

@@ -8,6 +8,7 @@ signal picked_up_journal
 
 # THIS MUST MATCH NUMBER OF SLOTS IN INVENTORYMENU GRID CONTAINER
 const NUM_INVENTORY_SLOTS = 16
+const NUM_CRAFTING_SLOTS = 2
 
 # key is unsigned int 0 - NUM_INVENTORY_SLOTS-1
 # value is array [item_id, item_quantity]

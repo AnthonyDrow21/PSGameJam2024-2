@@ -82,6 +82,46 @@ grow_vertical = 2
 theme = ExtResource("3_qquxj")
 text = "Skibidi Gyatt: The Rizzler of Ohio"
 
+[node name="Controls" type="VBoxContainer" parent="."]
+layout_mode = 1
+offset_right = 142.0
+offset_bottom = 131.0
+
+[node name="Header" type="Label" parent="Controls"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "Control List"
+horizontal_alignment = 1
+
+[node name="Movement" type="Label" parent="Controls"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "Movement: WASD"
+horizontal_alignment = 1
+
+[node name="Interact" type="Label" parent="Controls"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "Interact: SpaceBar"
+horizontal_alignment = 1
+
+[node name="Journal" type="Label" parent="Controls"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "Journal : J Key"
+horizontal_alignment = 1
+
+[node name="Inventory" type="Label" parent="Controls"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "Inventory: Tab"
+horizontal_alignment = 1
+
 [connection signal="mouse_entered" from="VBoxContainer/startButton" to="." method="_on_start_button_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/startButton" to="." method="_on_start_button_pressed"]
 [connection signal="mouse_entered" from="VBoxContainer/optionsButton" to="." method="_on_options_button_mouse_entered"]

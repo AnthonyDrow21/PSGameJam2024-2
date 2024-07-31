@@ -92,35 +92,42 @@ offset_bottom = 131.0
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-text = "Control List"
+text = "Credits"
 horizontal_alignment = 1
 
 [node name="Movement" type="Label" parent="Controls"]
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-text = "Movement: WASD"
+text = "Krista Boone"
 horizontal_alignment = 1
 
 [node name="Interact" type="Label" parent="Controls"]
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-text = "Interact: SpaceBar"
+text = "Derek Boone"
 horizontal_alignment = 1
 
 [node name="Journal" type="Label" parent="Controls"]
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-text = "Journal : J Key"
+text = "Clark Jarnagin"
 horizontal_alignment = 1
 
 [node name="Inventory" type="Label" parent="Controls"]
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-text = "Inventory: Tab"
+text = "Nick Gibbas"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="Controls"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "Anthony Drow"
 horizontal_alignment = 1
 
 [connection signal="mouse_entered" from="VBoxContainer/startButton" to="." method="_on_start_button_mouse_entered"]

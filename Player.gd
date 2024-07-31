@@ -24,7 +24,12 @@ func player_pickup_item():
 		$PickupZone.items_in_range.erase(pickup_item)
 
 		print("Picked up item: ", pickup_item.id)
-		PlayerInventory.add_item(pickup_item.id, 1)
+		if pickup_item.id == "light_potion":
+			# Skip adding these to the inventory and adjust the light source.
+			$PointLight2D.update_remaining_time(5.0)
+		else:
+			# Add item to the player inventory
+			PlayerInventory.add_item(pickup_item.id, 1)
 	
 # Called when the node enters the scene tree for the first time.
 func _ready():

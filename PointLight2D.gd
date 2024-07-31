@@ -14,11 +14,11 @@ func _ready():
 		return
 	
 	if GameSettings.difficulty == GameSettings.DIFFICULTY_LEVEL.Easy:
-		max_time = 30.0
+		max_time = 40.0
 	elif GameSettings.difficulty == GameSettings.DIFFICULTY_LEVEL.Normal:
-		max_time = 20.0
+		max_time = 30.0
 	elif GameSettings.difficulty == GameSettings.DIFFICULTY_LEVEL.Hard:
-		max_time = 10.0
+		max_time = 20.0
 	else:
 		print("Unknown game difficulty setting!")
 	
@@ -41,6 +41,10 @@ func _on_timer_timeout():
 
 
 func update_remaining_time(delta):
+	if _timer == null:
+		# Ignore for developer mode
+		return
+	
 	var time_left = _timer.time_left
 	_timer.stop()
 	

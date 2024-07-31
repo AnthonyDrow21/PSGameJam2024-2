@@ -43,8 +43,8 @@ position = Vector2(107, 141)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 modulate = Color(0.194349, 0.194349, 0.194349, 1)
-light_mask = 2
-visibility_layer = 2
+light_mask = 6
+visibility_layer = 6
 color = Color(0.196078, 0.196078, 0.196078, 1)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -83,7 +83,17 @@ offset_right = 1113.0
 offset_bottom = 613.0
 maxNumberOfItems = 8
 minNumberOfItems = 3
-itemIds = ["green_potion", "pink_potion", "black_potion"]
+itemIds = ["green_potion", "pink_potion", "black_potion", "light_potion"]
+
+[node name="ItemSpawnZone_LightPotions" parent="." groups=["SpawnZones"] instance=ExtResource("5_ukgj6")]
+offset_left = -382.0
+offset_top = 11.0
+offset_right = 2806.0
+offset_bottom = 2097.0
+shouldRespawnIfEmpty = true
+maxNumberOfItems = 30
+minNumberOfItems = 10
+itemIds = ["light_potion"]
 
 [node name="CanvasLayer2" parent="." instance=ExtResource("6_ua606")]
 

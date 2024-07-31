@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://qs724ar8c0wb"]
+[gd_scene load_steps=77 format=3 uid="uid://qs724ar8c0wb"]
 
 [ext_resource type="Script" path="res://Elements/ItemDrop.gd" id="1_rps8g"]
 [ext_resource type="Texture2D" uid="uid://couw2cxhrviu6" path="res://Assets/Items/Potions/Large Jar - TURQUOISE - Spritesheet.png" id="2_570ab"]
@@ -8,8 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://b5ksgk6nsyyy1" path="res://Assets/Items/Acid.png" id="5_ckcel"]
 [ext_resource type="Texture2D" uid="uid://bqadeogait41s" path="res://Assets/Items/Clues/AquaRegiaHintImage.png" id="5_i1ao1"]
 [ext_resource type="Texture2D" uid="uid://btcb2kfphwrre" path="res://Assets/Items/journal.png" id="5_y2h4r"]
-[ext_resource type="Texture2D" uid="uid://dq5s0jhgrdtvt" path="res://Assets/Map/Treasure+/Treasure+.png" id="7_a8fhh"]
-[ext_resource type="Texture2D" uid="uid://crtyium4qig1q" path="res://Assets/MiniWorldSprites/Miscellaneous/Well.png" id="9_pkpj8"]
+[ext_resource type="Texture2D" uid="uid://di5bn58tcnwvu" path="res://Assets/Treasure+/Shine_Sheet.png" id="7_7yg8b"]
+[ext_resource type="Texture2D" uid="uid://ct0ovul4davp" path="res://Assets/Treasure+/Treasure+.png" id="9_78kr0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jv5fj"]
 atlas = ExtResource("3_nbxx7")
@@ -195,13 +195,37 @@ region = Rect2(98, 0, 14, 24)
 atlas = ExtResource("4_33a81")
 region = Rect2(112, 0, 14, 24)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_phgpb"]
-atlas = ExtResource("7_a8fhh")
-region = Rect2(240, 64, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ei8le"]
+atlas = ExtResource("7_7yg8b")
+region = Rect2(0, 80, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7kbko"]
-atlas = ExtResource("9_pkpj8")
-region = Rect2(16, 16, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_hgecj"]
+atlas = ExtResource("7_7yg8b")
+region = Rect2(16, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ibvvv"]
+atlas = ExtResource("7_7yg8b")
+region = Rect2(32, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iffjj"]
+atlas = ExtResource("7_7yg8b")
+region = Rect2(48, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_an2ad"]
+atlas = ExtResource("7_7yg8b")
+region = Rect2(64, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hjsnv"]
+atlas = ExtResource("7_7yg8b")
+region = Rect2(80, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8lv20"]
+atlas = ExtResource("7_7yg8b")
+region = Rect2(96, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jlnmk"]
+atlas = ExtResource("9_78kr0")
+region = Rect2(64, 192, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ip55x"]
 animations = [{
@@ -376,10 +400,28 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_phgpb")
+"texture": SubResource("AtlasTexture_ei8le")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hgecj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ibvvv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iffjj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_an2ad")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hjsnv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8lv20")
 }],
 "loop": true,
-"name": &"gold",
+"name": &"blink",
 "speed": 5.0
 }, {
 "frames": [{
@@ -392,12 +434,76 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7kbko")
+"texture": SubResource("AtlasTexture_jlnmk")
 }],
 "loop": true,
-"name": &"water_bucket",
+"name": &"light_bottle",
 "speed": 5.0
 }]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pxfch"]
+atlas = ExtResource("7_7yg8b")
+region = Rect2(0, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l0w4y"]
+atlas = ExtResource("7_7yg8b")
+region = Rect2(16, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7tg0n"]
+atlas = ExtResource("7_7yg8b")
+region = Rect2(32, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fhj8m"]
+atlas = ExtResource("7_7yg8b")
+region = Rect2(48, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xffg8"]
+atlas = ExtResource("7_7yg8b")
+region = Rect2(64, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8wmd"]
+atlas = ExtResource("7_7yg8b")
+region = Rect2(80, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tvtr4"]
+atlas = ExtResource("7_7yg8b")
+region = Rect2(96, 80, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7nr40"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pxfch")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l0w4y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7tg0n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fhj8m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xffg8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a8wmd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tvtr4")
+}],
+"loop": true,
+"name": &"blink",
+"speed": 5.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_3jgpm"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xx0by"]
+gradient = SubResource("Gradient_3jgpm")
+fill = 1
+fill_from = Vector2(0.5, 0.525641)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5k4qh"]
 size = Vector2(18, 42)
@@ -410,9 +516,25 @@ script = ExtResource("1_rps8g")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 light_mask = 2
 visibility_layer = 2
-scale = Vector2(0.894356, 0.782822)
 sprite_frames = SubResource("SpriteFrames_ip55x")
-animation = &"water_bucket"
+animation = &"light_bottle"
+
+[node name="BlinkLayer" type="CanvasGroup" parent="."]
+visible = false
+
+[node name="BlinkAnimation" type="AnimatedSprite2D" parent="BlinkLayer"]
+light_mask = 3
+visibility_layer = 3
+scale = Vector2(1.525, 1.525)
+sprite_frames = SubResource("SpriteFrames_7nr40")
+animation = &"blink"
+
+[node name="PointLight2D" type="PointLight2D" parent="BlinkLayer/BlinkAnimation"]
+position = Vector2(0, -5.96046e-08)
+scale = Vector2(0.251025, 0.251025)
+color = Color(1, 1, 0.733333, 1)
+energy = 0.35
+texture = SubResource("GradientTexture2D_xx0by")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_5k4qh")

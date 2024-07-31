@@ -56,7 +56,7 @@ alignment = 1
 layout_mode = 2
 size_flags_vertical = 0
 theme = SubResource("Theme_k5xat")
-theme_override_colors/font_color = Color(0.141176, 0.156863, 0.196078, 1)
+theme_override_colors/font_color = Color(0.832068, 0.902281, 0.957852, 1)
 theme_override_font_sizes/font_size = 27
 text = "
 "
@@ -65,7 +65,7 @@ text = "
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
-theme_override_colors/font_color = Color(0.141176, 0.156863, 0.196078, 1)
+theme_override_colors/font_color = Color(0.832068, 0.902281, 0.957852, 1)
 theme_override_font_sizes/font_size = 26
 autowrap_mode = 2
 
@@ -73,5 +73,5 @@ autowrap_mode = 2
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
-theme_override_colors/font_color = Color(0.141176, 0.156863, 0.196078, 1)
+theme_override_colors/font_color = Color(0.832068, 0.902281, 0.957852, 1)
 theme_override_font_sizes/font_size = 27

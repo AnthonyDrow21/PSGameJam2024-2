@@ -114,13 +114,13 @@ position = Vector2(39, 4)
 item_id_key = "aqua_regia"
 
 [node name="Gold" parent="." instance=ExtResource("7_4rhov")]
-position = Vector2(2515, 121)
-scale = Vector2(2, 2)
+position = Vector2(2516, 121)
+scale = Vector2(0.5, 0.5)
 id = "gold_goblet"
 
 [node name="WaterBucket" parent="." instance=ExtResource("7_4rhov")]
 position = Vector2(362, 1578)
-scale = Vector2(4, 4)
+scale = Vector2(0.5, 0.5)
 id = "water_bucket"
 
 [node name="LevelMusic" type="AudioStreamPlayer" parent="."]

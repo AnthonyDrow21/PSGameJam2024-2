@@ -168,7 +168,5 @@ texture = ExtResource("5_tydjj")
 [connection signal="pressed" from="ColorRect/BrewButton" to="." method="_on_brew_button_pressed"]
 [connection signal="pressed" from="ColorRect/PrimeButtons/MindButton" to="ColorRect/PrimeSlot" method="_on_mind_button_pressed"]
 [connection signal="pressed" from="ColorRect/PrimeButtons/MindButton" to="ColorRect/PrimeSlot/Sprite2D" method="_on_mind_button_pressed"]
-[connection signal="pressed" from="ColorRect/PrimeButtons/BodyButton" to="ColorRect/PrimeSlot" method="_on_body_button_pressed"]
 [connection signal="pressed" from="ColorRect/PrimeButtons/BodyButton" to="ColorRect/PrimeSlot/Sprite2D" method="_on_body_button_pressed"]
-[connection signal="pressed" from="ColorRect/PrimeButtons/SpiritButton" to="ColorRect/PrimeSlot" method="_on_spirit_button_pressed"]
 [connection signal="pressed" from="ColorRect/PrimeButtons/SpiritButton" to="ColorRect/PrimeSlot/Sprite2D" method="_on_spirit_button_pressed"]

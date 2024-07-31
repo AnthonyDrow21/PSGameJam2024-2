@@ -118,10 +118,13 @@ func on_options_button_pressed():
 		on_options_menu_opened()
 
 func on_game_over(didWin):	
-	toggle_pause(true)
-	var gameOverMenu = load("res://Menus/GameOverMenu.tscn").instantiate()
-	gameOverMenu.restart_requested.connect(on_restart)
-	add_menu(gameOverMenu)
+	#toggle_pause(true)
+	#var gameOverMenu = load("res://Menus/GameOverMenu.tscn").instantiate()
+	#gameOverMenu.restart_requested.connect(on_restart)
+	#add_menu(gameOverMenu)
+	var sceneChanger = load("res://Globals/SceneChanger.tscn").instantiate()
+	add_child(sceneChanger)
+	sceneChanger.change_scene("res://Maps/OutroLose.tscn", 0)
 
 func send_item_signal_to_craft(item):
 	print("Signal received", item.item_id)

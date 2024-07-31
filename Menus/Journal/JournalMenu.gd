@@ -8,7 +8,7 @@ signal toggle_journal(open)
 # e.g. if _current_page == 0, we are viewing page 0 on the left, and 1 on the right
 var _pages = []
 var _left_page_idx = 0
-var _found = false
+var _found = true
 
 const PAGE_IDX = 0
 const IS_UNLOCKED_IDX = 1

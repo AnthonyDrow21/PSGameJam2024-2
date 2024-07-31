@@ -13,6 +13,7 @@ const NUM_CRAFTING_SLOTS = 2
 # key is unsigned int 0 - NUM_INVENTORY_SLOTS-1
 # value is array [item_id, item_quantity]
 var inventory = {
+	0 : ["journal", 1]
 	}
 
 
@@ -88,3 +89,4 @@ func remove_item(item_id, quantity):
 
 func reset():
 	inventory.clear()
+	inventory[0] = ["journal", 1]

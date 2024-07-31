@@ -2,6 +2,9 @@ extends Control
 
 signal exiting_options
 
+@onready var devModeLabel = $TextureRect/TabContainer/Gameplay/VBoxContainer/GridContainer/Label2
+@onready var devModeButton = $TextureRect/TabContainer/Gameplay/VBoxContainer/GridContainer/developerModeButton
+
 func load_difficulty_option():
 	var difficultyButton = find_child("difficultyButton") as OptionButton
 	assert(GameSettings.difficulty >= 0)
@@ -14,6 +17,8 @@ func load_difficulty_option():
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	load_difficulty_option()
+	devModeLabel.hide()
+	devModeButton.hide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

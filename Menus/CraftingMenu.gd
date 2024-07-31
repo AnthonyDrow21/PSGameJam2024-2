@@ -14,6 +14,7 @@ func _on_brew_button_pressed():
 	var player = get_tree().get_first_node_in_group("Player").get_child(0)
 	print(primeSlot)
 	if elementSlot == "WATER" && metalSlot == "GOLD" && primeSlot == "SPIRIT":
+		$CraftSound.play()
 		var aquaregia = ItemDropClass.instantiate().with_id("aqua_regia")
 		player.get_parent().add_child(aquaregia)
 		aquaregia.global_position.x = player.global_position.x + 25

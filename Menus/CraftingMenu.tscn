@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://60o8aygmn1k7"]
+[gd_scene load_steps=15 format=3 uid="uid://60o8aygmn1k7"]
 
 [ext_resource type="Script" path="res://Menus/PrimeSlot.gd" id="1_27o7h"]
 [ext_resource type="Theme" uid="uid://bw5ts6b6l21li" path="res://Assets/UI/theme.tres" id="1_63k63"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://b1l6ajxc2ch56" path="res://Assets/MenuArt/BodySymbol.png" id="4_r1p1j"]
 [ext_resource type="Texture2D" uid="uid://ct01b67dje3we" path="res://Assets/MenuArt/SpiritSymbol.png" id="5_tydjj"]
 [ext_resource type="Script" path="res://Menus/CraftingMenuSlot.gd" id="7_xobhx"]
+[ext_resource type="AudioStream" uid="uid://sonb14qqkk3p" path="res://Assets/Sounds/Bubble4.wav" id="12_k4hku"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c0ntl"]
 texture = ExtResource("3_77qb0")
@@ -164,6 +165,9 @@ offset_bottom = 10.0
 position = Vector2(11, 10)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("5_tydjj")
+
+[node name="CraftSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_k4hku")
 
 [connection signal="pressed" from="ColorRect/BrewButton" to="." method="_on_brew_button_pressed"]
 [connection signal="pressed" from="ColorRect/PrimeButtons/MindButton" to="ColorRect/PrimeSlot" method="_on_mind_button_pressed"]

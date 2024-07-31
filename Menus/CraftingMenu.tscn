@@ -78,11 +78,17 @@ layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_clb3x")
 script = ExtResource("7_xobhx")
 
+[node name="Sprite2D" type="Sprite2D" parent="ColorRect/GridContainer/ElementSlot"]
+position = Vector2(29, 28)
+
 [node name="MetalSlot" type="Panel" parent="ColorRect/GridContainer"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_clb3x")
 script = ExtResource("7_xobhx")
+
+[node name="Sprite2D" type="Sprite2D" parent="ColorRect/GridContainer/MetalSlot"]
+position = Vector2(30, 26)
 
 [node name="selectedItemPanel" type="Panel" parent="ColorRect"]
 layout_mode = 0

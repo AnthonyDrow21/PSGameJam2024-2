@@ -4,7 +4,7 @@ extends Control
 
 signal toggle_inventory(open)
 signal toggle_journal(open)
-signal send_item_signal(ItemID)
+signal send_item_signal(item)
 const SlotClass = preload("res://Menus/InventoryMenuSlot.gd")
 
 var heldItem = null
@@ -140,6 +140,6 @@ func _on_open_button_pressed():
 	
 func send_item_ID(item):
 	if heldItem != null:
-		emit_signal("send_item_signal", item.item_id)
+		emit_signal("send_item_signal", item)
 		print(item.item_id)
 	

@@ -107,13 +107,14 @@ func on_game_over(didWin):
 	gameOverMenu.restart_requested.connect(on_restart)
 	add_menu(gameOverMenu)
 
-func send_item_signal_to_craft(itemID):
-	print("Signal received", itemID)
-	if itemID == "gold_goblet":
-		#Add png to metal slot same as id
+func send_item_signal_to_craft(item):
+	print("Signal received", item.item_id)
+	var itemIcon = load(item.iconPath)
+	if item.item_id == "gold_goblet":
+		CRAFTING_MENU.set_metal_icon(item)
 		CRAFTING_MENU.metalSlot = "GOLD"
-	elif itemID == "water_bucket":
-		#add png to element slt same as id
+	elif item.item_id == "water_bucket":
+		CRAFTING_MENU.set_elemental_icon(item)
 		CRAFTING_MENU.elementSlot = "WATER"
 	else:
 		print("This doesn't seem to fit in the pot")

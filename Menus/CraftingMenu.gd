@@ -20,3 +20,14 @@ func _on_brew_button_pressed():
 	else:
 		print("We better try something else...")
 	pass # Replace with function body.
+
+func set_metal_icon(item):
+	#var image = item.iconPath
+	var image = Image.load_from_file(item.iconPath)
+	var texture = ImageTexture.create_from_image(image)
+	$ColorRect/GridContainer/MetalSlot/Sprite2D.texture = texture
+
+func set_elemental_icon(item):
+	var image = Image.load_from_file(item.iconPath)
+	var texture = ImageTexture.create_from_image(image)
+	$ColorRect/GridContainer/ElementSlot/Sprite2D.texture = texture

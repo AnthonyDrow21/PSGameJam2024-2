@@ -9,6 +9,7 @@ var PAUSE_MENU = preload("res://Menus/PauseMenu.tscn").instantiate()
 
 var Menus_Hidden = []
 var paused = false
+var optionsMenuActive = false
 
 func add_menu(menu):
 	# The CanvasLayer is uneffected by the game lighting models.
@@ -44,6 +45,7 @@ func _ready():
 	add_menu(PAUSE_MENU)
 	PAUSE_MENU.toggle_pause.connect(toggle_pause_menu)
 	PAUSE_MENU.restart_requested.connect(on_restart)
+	PAUSE_MENU.options_requested.connect(on_options_button_pressed)
 	PAUSE_MENU.hide()
 	
 	# initialize spawn zones
@@ -100,7 +102,21 @@ func on_restart():
 	toggle_pause(false)
 	PlayerInventory.reset()
 	get_tree().change_scene_to_file("res://World.tscn")
+
+func on_options_menu_exiting():
+	optionsMenuActive = false
+	#print(GameSettings.difficulty)
 	
+func on_options_menu_opened():
+	optionsMenuActive = true
+
+func on_options_button_pressed():
+	if not optionsMenuActive:
+		var optionsMenu = load("res://Menus/OptionsMenu.tscn").instantiate()
+		optionsMenu.exiting_options.connect(on_options_menu_exiting)
+		add_menu(optionsMenu)
+		on_options_menu_opened()
+
 func on_game_over(didWin):	
 	toggle_pause(true)
 	var gameOverMenu = load("res://Menus/GameOverMenu.tscn").instantiate()

@@ -9,6 +9,7 @@ load_path = "res://.godot/imported/menu_background.png-727f08996766bb3dc5f5e9cea
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6a181"]
 
 [node name="OptionsMenu" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -103,6 +104,48 @@ text = "Done"
 [node name="Controls" type="TabBar" parent="TextureRect/TabContainer"]
 visible = false
 layout_mode = 2
+
+[node name="Controls" type="VBoxContainer" parent="TextureRect/TabContainer/Controls"]
+layout_mode = 0
+offset_left = 150.0
+offset_right = 456.0
+offset_bottom = 246.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Header" type="Label" parent="TextureRect/TabContainer/Controls/Controls"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "Control List"
+horizontal_alignment = 1
+
+[node name="Movement" type="Label" parent="TextureRect/TabContainer/Controls/Controls"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "Movement: WASD"
+horizontal_alignment = 1
+
+[node name="Interact" type="Label" parent="TextureRect/TabContainer/Controls/Controls"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "Interact: SpaceBar"
+horizontal_alignment = 1
+
+[node name="Journal" type="Label" parent="TextureRect/TabContainer/Controls/Controls"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "Journal : J Key"
+horizontal_alignment = 1
+
+[node name="Inventory" type="Label" parent="TextureRect/TabContainer/Controls/Controls"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "Inventory: Tab"
+horizontal_alignment = 1
 
 [connection signal="item_selected" from="TextureRect/TabContainer/Gameplay/VBoxContainer/GridContainer/difficultyButton" to="." method="_on_difficulty_button_item_selected"]
 [connection signal="toggled" from="TextureRect/TabContainer/Gameplay/VBoxContainer/GridContainer/developerModeButton" to="." method="_on_developer_mode_button_toggled"]

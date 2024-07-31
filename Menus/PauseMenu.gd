@@ -2,6 +2,7 @@ extends Control
 
 signal toggle_pause(is_paused : bool)
 signal restart_requested
+signal options_requested
 
 
 func _on_resume_button_pressed():
@@ -21,3 +22,7 @@ func _on_exit_button_pressed():
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):
 		emit_signal("toggle_pause", not visible)
+
+
+func _on_options_button_pressed() -> void:
+	emit_signal("options_requested")

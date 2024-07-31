@@ -62,10 +62,15 @@ text = "Resume"
 layout_mode = 2
 text = "Restart"
 
+[node name="optionsButton" type="Button" parent="TextureRect/VBoxContainer"]
+layout_mode = 2
+text = "Options"
+
 [node name="exitButton" type="Button" parent="TextureRect/VBoxContainer"]
 layout_mode = 2
 text = "Exit"
 
 [connection signal="pressed" from="TextureRect/VBoxContainer/resumeButton" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="TextureRect/VBoxContainer/restartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="TextureRect/VBoxContainer/optionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="TextureRect/VBoxContainer/exitButton" to="." method="_on_exit_button_pressed"]

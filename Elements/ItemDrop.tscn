@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=3 uid="uid://qs724ar8c0wb"]
+[gd_scene load_steps=77 format=3 uid="uid://qs724ar8c0wb"]
 
 [ext_resource type="Script" path="res://Elements/ItemDrop.gd" id="1_rps8g"]
 [ext_resource type="Texture2D" uid="uid://couw2cxhrviu6" path="res://Assets/Items/Potions/Large Jar - TURQUOISE - Spritesheet.png" id="2_570ab"]
@@ -9,9 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bqadeogait41s" path="res://Assets/Items/Clues/AquaRegiaHintImage.png" id="5_i1ao1"]
 [ext_resource type="Texture2D" uid="uid://btcb2kfphwrre" path="res://Assets/Items/journal.png" id="5_y2h4r"]
 [ext_resource type="Texture2D" uid="uid://di5bn58tcnwvu" path="res://Assets/Treasure+/Shine_Sheet.png" id="7_7yg8b"]
-[ext_resource type="Texture2D" uid="uid://dsoy4h7tv187s" path="res://Assets/Items/Potions/GoldenChalice.png" id="8_k78g1"]
 [ext_resource type="Texture2D" uid="uid://ct0ovul4davp" path="res://Assets/Treasure+/Treasure+.png" id="9_78kr0"]
-[ext_resource type="Texture2D" uid="uid://basemekhfpgbl" path="res://Assets/Items/Potions/WaterBucket.png" id="11_s4e4d"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jv5fj"]
 atlas = ExtResource("3_nbxx7")
@@ -64,34 +62,6 @@ region = Rect2(198, 0, 18, 28)
 [sub_resource type="AtlasTexture" id="AtlasTexture_1r6kp"]
 atlas = ExtResource("3_nbxx7")
 region = Rect2(216, 0, 18, 28)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ei8le"]
-atlas = ExtResource("7_7yg8b")
-region = Rect2(0, 80, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hgecj"]
-atlas = ExtResource("7_7yg8b")
-region = Rect2(16, 80, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ibvvv"]
-atlas = ExtResource("7_7yg8b")
-region = Rect2(32, 80, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_iffjj"]
-atlas = ExtResource("7_7yg8b")
-region = Rect2(48, 80, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_an2ad"]
-atlas = ExtResource("7_7yg8b")
-region = Rect2(64, 80, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hjsnv"]
-atlas = ExtResource("7_7yg8b")
-region = Rect2(80, 80, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8lv20"]
-atlas = ExtResource("7_7yg8b")
-region = Rect2(96, 80, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6yvbf"]
 atlas = ExtResource("2_570ab")
@@ -189,10 +159,6 @@ region = Rect2(396, 0, 18, 34)
 atlas = ExtResource("2_570ab")
 region = Rect2(414, 0, 18, 34)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jlnmk"]
-atlas = ExtResource("9_78kr0")
-region = Rect2(64, 192, 16, 16)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_sreoa"]
 atlas = ExtResource("4_33a81")
 region = Rect2(0, 0, 14, 24)
@@ -229,24 +195,40 @@ region = Rect2(98, 0, 14, 24)
 atlas = ExtResource("4_33a81")
 region = Rect2(112, 0, 14, 24)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ei8le"]
+atlas = ExtResource("7_7yg8b")
+region = Rect2(0, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hgecj"]
+atlas = ExtResource("7_7yg8b")
+region = Rect2(16, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ibvvv"]
+atlas = ExtResource("7_7yg8b")
+region = Rect2(32, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iffjj"]
+atlas = ExtResource("7_7yg8b")
+region = Rect2(48, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_an2ad"]
+atlas = ExtResource("7_7yg8b")
+region = Rect2(64, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hjsnv"]
+atlas = ExtResource("7_7yg8b")
+region = Rect2(80, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8lv20"]
+atlas = ExtResource("7_7yg8b")
+region = Rect2(96, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jlnmk"]
+atlas = ExtResource("9_78kr0")
+region = Rect2(64, 192, 16, 16)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_ip55x"]
 animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("5_ckcel")
-}],
-"loop": true,
-"name": &"anim_aqua_regia",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("5_i1ao1")
-}],
-"loop": true,
-"name": &"anim_aqua_regia_recipe",
-"speed": 5.0
-}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_jv5fj")
@@ -289,40 +271,6 @@ animations = [{
 }],
 "loop": true,
 "name": &"anim_black_potion",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ei8le")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hgecj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ibvvv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_iffjj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_an2ad")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hjsnv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8lv20")
-}],
-"loop": true,
-"name": &"anim_blink",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("8_k78g1")
-}],
-"loop": true,
-"name": &"anim_gold_goblet",
 "speed": 5.0
 }, {
 "frames": [{
@@ -404,22 +352,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_y2h4r")
-}],
-"loop": true,
-"name": &"anim_journal",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jlnmk")
-}],
-"loop": true,
-"name": &"anim_light_potion",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_sreoa")
 }, {
 "duration": 1.0,
@@ -452,10 +384,60 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("11_s4e4d")
+"texture": ExtResource("5_ckcel")
 }],
 "loop": true,
-"name": &"anim_water_bucket",
+"name": &"aqua_regia",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_i1ao1")
+}],
+"loop": true,
+"name": &"aqua_regia_recipe",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ei8le")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hgecj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ibvvv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iffjj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_an2ad")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hjsnv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8lv20")
+}],
+"loop": true,
+"name": &"blink",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_y2h4r")
+}],
+"loop": true,
+"name": &"journal",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jlnmk")
+}],
+"loop": true,
+"name": &"light_bottle",
 "speed": 5.0
 }]
 
@@ -535,7 +517,7 @@ script = ExtResource("1_rps8g")
 light_mask = 2
 visibility_layer = 2
 sprite_frames = SubResource("SpriteFrames_ip55x")
-animation = &"anim_aqua_regia"
+animation = &"light_bottle"
 
 [node name="BlinkLayer" type="CanvasGroup" parent="."]
 visible = false

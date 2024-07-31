@@ -23,6 +23,7 @@ offset_top = -8.5
 offset_bottom = 8.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_font_sizes/font_size = 18
 text = "I would like to note, for any reading this, that the forest surrounding the Iron Gate of Phlogistonia was not particularly remarkable.  It will not be missed.  Also, despite fire's tendency to consume; its relative uncontrollable nature does not lend itself to the deft hand of an assassin.  Furthermore, aerated acid has cost me my last good assistant and pouring my concoctions directly into the earth was similarly fruitless.  Perhaps I am missing something…"
 horizontal_alignment = 1
 vertical_alignment = 1

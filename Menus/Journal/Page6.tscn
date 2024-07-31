@@ -23,6 +23,7 @@ offset_top = -8.5
 offset_bottom = 8.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_font_sizes/font_size = 18
 text = "Despite my best efforts, and putting my entire unfathomably wrinkled mind to work, I continue to fail to replicate the achievements of my predecessors.  Perhaps reliance on my mind is the problem? Writhing with symbols, the phases of the moon, and movements of heavenly bodies.  Perhaps I shall try prayer…..(writing notably less legible) Success! I’m writing this three days after my last entry.  I have since recovered from my injuries and am noting the increased efficacy of my solutions.
 "
 horizontal_alignment = 1

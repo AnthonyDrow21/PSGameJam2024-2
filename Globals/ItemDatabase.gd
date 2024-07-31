@@ -24,6 +24,7 @@ var ITEMS = {
 	"water_bucket" : ItemDefClass.instantiate().with_data("water_bucket", "Bucket of Water", "Looks wet...", "water_bucket", POTION_SOUND, "res://Assets/Items/Clues/AquaRegiaHintImage.png"),
 	"aqua_regia" : ItemDefClass.instantiate().with_data("aqua_regia", "Aqua Regia", "A mystical potion that can melt any metal", "aqua_regia", POTION_SOUND, "res://Assets/Items/Acid.png"),
 	"journal": ItemDefClass.instantiate().with_data("journal", "Old Journal", "A journal with alchemical recipes...this could be useful", "journal", "res://Assets/Sounds/JournalPickup.ogg", "res://Assets/Items/Journal.png"),
-	"journalpage_aquaregia": ItemDefClass.instantiate().with_data("journalpage_aquaregia", "Torn Journal Page", "A ripped journal page with some kind of ... alchemical symbols?", "aqua_regia_recipe", "res://Assets/Sounds/JournalPageTurn.wav", "res://Assets/Items/Clues/AquaRegiaHintImage.png")
+	"journalpage_aquaregia": ItemDefClass.instantiate().with_data("journalpage_aquaregia", "Torn Journal Page", "A ripped journal page with some kind of ... alchemical symbols?", "aqua_regia_recipe", "res://Assets/Sounds/JournalPageTurn.wav", "res://Assets/Items/Clues/AquaRegiaHintImage.png"),
+	"light_potion" : ItemDefClass.instantiate().with_data("light_potion", "Light Potion", "A mystical light potion", "anim_light_potion", POTION_SOUND, "res://Assets/Items/Potions/Small Vial - PINK.png", true),
 	# Put more items here!
 	}

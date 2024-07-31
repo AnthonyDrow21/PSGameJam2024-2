@@ -7,8 +7,8 @@ const max_speed = 500
 
 @export var id: String
 var label: String
-var animationName: String
-
+var animation_name: String
+var is_shiny: bool
 var _initialized = false
 var player = null
 var being_picked_up = false
@@ -21,7 +21,7 @@ func _ready():
 	# If item is placed in the World through Godot UI, we will initialize it here
 	if not _initialized:
 		self.with_id(id)
-	$AnimatedSprite2D.play(animationName)
+	$AnimatedSprite2D.play(animation_name)
 
 func _physics_process(delta):
 	if being_picked_up == true:
@@ -42,12 +42,17 @@ func with_id(item_id):
 	var itemDef = ItemDatabase.get_item(item_id)
 	id = itemDef.id
 	label = itemDef.label
-	animationName = itemDef.animationName
+	animation_name = itemDef.animation_name
+	is_shiny = itemDef.is_shiny
 	
-	if FileAccess.file_exists(itemDef.audioPath):
-		$PickupAudio.stream = load(itemDef.audioPath)
+	if is_shiny:
+		$BlinkLayer.visible = true
+		$BlinkLayer/BlinkAnimation.play("blink")
+	
+	if FileAccess.file_exists(itemDef.audio_path):
+		$PickupAudio.stream = load(itemDef.audio_path)
 	else:
-		print("Error: Unable to create ItemUI with sound path ", itemDef.audioPath)
+		print("Error: Unable to create ItemUI with sound path ", itemDef.audio_path)
 	return self
 
 func pick_up_item(body):

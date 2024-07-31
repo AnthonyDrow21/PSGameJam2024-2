@@ -47,7 +47,7 @@ func update_selected_item_view(slot):
 		$ColorRect/HBoxContainer/VBoxContainer/itemLabel.text = item.label
 		$ColorRect/HBoxContainer/VBoxContainer/itemDescription.text = item.description
 		# todo: scaling is awful
-		var image = Image.load_from_file(item.iconPath)
+		var image = Image.load_from_file(item.icon_path)
 		$ColorRect/HBoxContainer/VBoxContainer/itemImage.texture = ImageTexture.create_from_image(image)
 		
 		# todo: this is pretty ugly- if we want a use button for any other type, we need to add

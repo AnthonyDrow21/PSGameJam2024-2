@@ -23,7 +23,6 @@ offset_top = -12.0
 offset_bottom = 12.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "< Introduction for why mr alchemy man is doing what he's doing? What is this place and why was he here? Why is the player here?>
-"
+text = "These pages are quite burnt. Presumably a once eloquent introductory lesson to the fundamentals of alchemy penned by Sir George once adorned these pages.  The most of the remaining pages have been torn out... perhaps they can be found?"
 vertical_alignment = 1
 autowrap_mode = 2

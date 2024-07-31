@@ -1,6 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://6mt4t31yd5y0"]
+[gd_scene load_steps=6 format=3 uid="uid://6mt4t31yd5y0"]
 
 [ext_resource type="Theme" uid="uid://bojuikabked6y" path="res://Assets/UI/Journal/journal_theme.tres" id="1_3dwxa"]
+[ext_resource type="Texture2D" uid="uid://dqi1i8bir2eh" path="res://Assets/MenuArt/MindSymbol.png" id="2_lojj2"]
+[ext_resource type="Texture2D" uid="uid://b1l6ajxc2ch56" path="res://Assets/MenuArt/BodySymbol.png" id="3_5gw4l"]
+[ext_resource type="Texture2D" uid="uid://ct01b67dje3we" path="res://Assets/MenuArt/SpiritSymbol.png" id="4_5ypym"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_du0dr"]
 
@@ -23,10 +26,55 @@ offset_top = -52.5
 offset_bottom = 52.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "My search for the ultimate brew to turn anything into gold has been fruitless thus far... but in my  years of research I've stumbled accross a few useful brews to tame this wilderness.
-
-< more info on the three modes for crafting? >
+theme_override_font_sizes/font_size = 15
+text = "It seems it's the simplest things that I so often forget.  So, as a primer for both me and any lucky aspiring alchemist who happens upon my wealth of knowledge I shall review the three Prime States.  Mind, Body, Spirit.  By inhabiting these modes we alchemists can attune our brews. (Click on the symbols in the crafting menu to select your \"Mode\")
 "
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -247.0
+offset_top = 81.0
+offset_right = 312.0
+offset_bottom = 230.0
+
+[node name="MindSymbol" type="Sprite2D" parent="TextureRect"]
+position = Vector2(545, 193.5)
+scale = Vector2(2.55078, 2.46484)
+texture = ExtResource("2_lojj2")
+
+[node name="Label" type="Label" parent="TextureRect/MindSymbol"]
+offset_left = -18.4257
+offset_top = 11.1569
+offset_right = 21.5743
+offset_bottom = 34.1569
+text = "Mind"
+metadata/_edit_use_anchors_ = true
+
+[node name="BodySymbol" type="Sprite2D" parent="TextureRect"]
+position = Vector2(425, 189.5)
+scale = Vector2(3.20312, 3.42188)
+texture = ExtResource("3_5gw4l")
+
+[node name="Label" type="Label" parent="TextureRect/BodySymbol"]
+offset_left = -15.2976
+offset_top = 7.0137
+offset_right = 24.7024
+offset_bottom = 30.0137
+theme_override_font_sizes/font_size = 13
+text = "Body"
+metadata/_edit_use_anchors_ = true
+
+[node name="SpiritSymbol" type="Sprite2D" parent="TextureRect"]
+position = Vector2(301, 191.5)
+scale = Vector2(2.59375, 2.38281)
+texture = ExtResource("4_5ypym")
+
+[node name="Label" type="Label" parent="TextureRect/SpiritSymbol"]
+offset_left = -19.2771
+offset_top = 11.1213
+offset_right = 21.7229
+offset_bottom = 34.1213
+text = "Spirit"

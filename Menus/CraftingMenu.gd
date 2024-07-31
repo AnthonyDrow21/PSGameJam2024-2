@@ -8,10 +8,11 @@ const SlotClass = preload("res://Menus/CraftingMenuSlot.gd")
 
 var elementSlot = null
 var metalSlot = null
+var primeSlot = null
 
 func _on_brew_button_pressed():
 	var player = get_tree().get_first_node_in_group("Player").get_child(0)
-	if elementSlot == "WATER" && metalSlot == "GOLD":
+	if elementSlot == "WATER" && metalSlot == "GOLD" && primeSlot == "MIND":
 		print("You did it! Aqua Regia!")
 		var aquaregia = ItemDropClass.instantiate().with_id("aqua_regia")
 		player.get_parent().add_child(aquaregia)
@@ -23,11 +24,11 @@ func _on_brew_button_pressed():
 
 func set_metal_icon(item):
 	#var image = item.iconPath
-	var image = Image.load_from_file(item.iconPath)
+	var image = Image.load_from_file(item.icon_path)
 	var texture = ImageTexture.create_from_image(image)
 	$ColorRect/GridContainer/MetalSlot/Sprite2D.texture = texture
 
 func set_elemental_icon(item):
-	var image = Image.load_from_file(item.iconPath)
+	var image = Image.load_from_file(item.icon_path)
 	var texture = ImageTexture.create_from_image(image)
 	$ColorRect/GridContainer/ElementSlot/Sprite2D.texture = texture

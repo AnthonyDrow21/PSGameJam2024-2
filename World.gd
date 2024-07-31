@@ -109,7 +109,7 @@ func on_game_over(didWin):
 
 func send_item_signal_to_craft(item):
 	print("Signal received", item.item_id)
-	var itemIcon = load(item.iconPath)
+	var itemIcon = load(item.icon_path)
 	if item.item_id == "gold_goblet":
 		CRAFTING_MENU.set_metal_icon(item)
 		CRAFTING_MENU.metalSlot = "GOLD"

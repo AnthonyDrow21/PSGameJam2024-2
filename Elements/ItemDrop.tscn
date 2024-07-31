@@ -1,14 +1,16 @@
-[gd_scene load_steps=77 format=3 uid="uid://qs724ar8c0wb"]
+[gd_scene load_steps=79 format=3 uid="uid://qs724ar8c0wb"]
 
 [ext_resource type="Script" path="res://Elements/ItemDrop.gd" id="1_rps8g"]
 [ext_resource type="Texture2D" uid="uid://couw2cxhrviu6" path="res://Assets/Items/Potions/Large Jar - TURQUOISE - Spritesheet.png" id="2_570ab"]
 [ext_resource type="Texture2D" uid="uid://mg4mtogglcmy" path="res://Assets/Items/Potions/Classic Jar - BLACK - Spritesheet.png" id="3_nbxx7"]
 [ext_resource type="AudioStream" uid="uid://b3gxlcti7jgb4" path="res://Assets/Sounds/Bubble3.wav" id="4_2sdmu"]
+[ext_resource type="Texture2D" uid="uid://dsoy4h7tv187s" path="res://Assets/Items/Potions/GoldenChalice.png" id="4_6h3ub"]
 [ext_resource type="Texture2D" uid="uid://5fmho4f37kcc" path="res://Assets/Items/Potions/Small Vial - PINK - Spritesheet.png" id="4_33a81"]
 [ext_resource type="Texture2D" uid="uid://b5ksgk6nsyyy1" path="res://Assets/Items/Acid.png" id="5_ckcel"]
 [ext_resource type="Texture2D" uid="uid://bqadeogait41s" path="res://Assets/Items/Clues/AquaRegiaHintImage.png" id="5_i1ao1"]
 [ext_resource type="Texture2D" uid="uid://btcb2kfphwrre" path="res://Assets/Items/journal.png" id="5_y2h4r"]
 [ext_resource type="Texture2D" uid="uid://di5bn58tcnwvu" path="res://Assets/Treasure+/Shine_Sheet.png" id="7_7yg8b"]
+[ext_resource type="Texture2D" uid="uid://basemekhfpgbl" path="res://Assets/Items/Potions/WaterBucket.png" id="8_bawmn"]
 [ext_resource type="Texture2D" uid="uid://ct0ovul4davp" path="res://Assets/Treasure+/Treasure+.png" id="9_78kr0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jv5fj"]
@@ -159,6 +161,10 @@ region = Rect2(396, 0, 18, 34)
 atlas = ExtResource("2_570ab")
 region = Rect2(414, 0, 18, 34)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_jlnmk"]
+atlas = ExtResource("9_78kr0")
+region = Rect2(64, 192, 16, 16)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_sreoa"]
 atlas = ExtResource("4_33a81")
 region = Rect2(0, 0, 14, 24)
@@ -223,12 +229,24 @@ region = Rect2(80, 80, 16, 16)
 atlas = ExtResource("7_7yg8b")
 region = Rect2(96, 80, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jlnmk"]
-atlas = ExtResource("9_78kr0")
-region = Rect2(64, 192, 16, 16)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_ip55x"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_ckcel")
+}],
+"loop": true,
+"name": &"anim_aqua_regia",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_i1ao1")
+}],
+"loop": true,
+"name": &"anim_aqua_regia_recipe",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_jv5fj")
@@ -271,6 +289,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"anim_black_potion",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_6h3ub")
+}],
+"loop": true,
+"name": &"anim_gold_goblet",
 "speed": 5.0
 }, {
 "frames": [{
@@ -352,6 +378,22 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("5_y2h4r")
+}],
+"loop": true,
+"name": &"anim_journal",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jlnmk")
+}],
+"loop": true,
+"name": &"anim_light_bottle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_sreoa")
 }, {
 "duration": 1.0,
@@ -384,18 +426,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_ckcel")
+"texture": ExtResource("8_bawmn")
 }],
 "loop": true,
-"name": &"aqua_regia",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("5_i1ao1")
-}],
-"loop": true,
-"name": &"aqua_regia_recipe",
+"name": &"anim_water_bucket",
 "speed": 5.0
 }, {
 "frames": [{
@@ -422,22 +456,6 @@ animations = [{
 }],
 "loop": true,
 "name": &"blink",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("5_y2h4r")
-}],
-"loop": true,
-"name": &"journal",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jlnmk")
-}],
-"loop": true,
-"name": &"light_bottle",
 "speed": 5.0
 }]
 
@@ -517,10 +535,9 @@ script = ExtResource("1_rps8g")
 light_mask = 2
 visibility_layer = 2
 sprite_frames = SubResource("SpriteFrames_ip55x")
-animation = &"light_bottle"
+animation = &"anim_light_bottle"
 
 [node name="BlinkLayer" type="CanvasGroup" parent="."]
-visible = false
 
 [node name="BlinkAnimation" type="AnimatedSprite2D" parent="BlinkLayer"]
 light_mask = 3

@@ -80,7 +80,8 @@ offset_bottom = -74.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("3_qquxj")
-text = "Skibidi Gyatt: The Rizzler of Ohio"
+text = "Witchcraft"
+horizontal_alignment = 1
 
 [node name="Controls" type="VBoxContainer" parent="."]
 layout_mode = 1

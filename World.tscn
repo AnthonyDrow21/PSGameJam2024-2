@@ -60,14 +60,6 @@ maxNumberOfItems = 6
 minNumberOfItems = 2
 itemIds = ["green_potion"]
 
-[node name="ItemSpawnZone_PinkPotions" parent="." groups=["SpawnZones"] instance=ExtResource("5_ukgj6")]
-offset_left = 2532.0
-offset_top = 628.0
-offset_right = 2700.0
-offset_bottom = 706.0
-maxNumberOfItems = 1
-itemIds = ["aqua_regia"]
-
 [node name="ItemSpawnZone_BlackPotions" parent="." groups=["SpawnZones"] instance=ExtResource("5_ukgj6")]
 offset_left = 883.0
 offset_top = 85.0

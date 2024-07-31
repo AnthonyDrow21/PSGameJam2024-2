@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqcm8h36y15v6"]
+
+[ext_resource type="Theme" uid="uid://bojuikabked6y" path="res://Assets/UI/Journal/journal_theme.tres" id="1_ucjy8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_du0dr"]
+
+[node name="Page7" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ucjy8")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_du0dr")
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -8.5
+offset_bottom = 8.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "I would like to note, for any reading this, that the forest surrounding the Iron Gate of Phlogistonia was not particularly remarkable.  It will not be missed.  Also, despite fire's tendency to consume; its relative uncontrollable nature does not lend itself to the deft hand of an assassin.  Furthermore, aerated acid has cost me my last good assistant and pouring my concoctions directly into the earth was similarly fruitless.  Perhaps I am missing something…"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2

@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cnwhwyqvffjtw" path="res://Maps/Forrest.tscn" id="2_0t12h"]
 [ext_resource type="PackedScene" uid="uid://cd4vunmawu2he" path="res://Frog.tscn" id="3_65jqr"]
 [ext_resource type="PackedScene" uid="uid://te8jlc7c4wpr" path="res://Elements/ItemSpawnZone.tscn" id="5_ukgj6"]
-[ext_resource type="PackedScene" uid="uid://bp2iynunt3ucr" path="res://Sheep.tscn" id="6_8a57w"]
+[ext_resource type="PackedScene" path="res://Sheep.tscn" id="6_8a57w"]
 [ext_resource type="PackedScene" uid="uid://dndsgtaw3w7s3" path="res://Textbox.tscn" id="6_ua606"]
 [ext_resource type="PackedScene" uid="uid://qs724ar8c0wb" path="res://Elements/ItemDrop.tscn" id="7_4rhov"]
 [ext_resource type="PackedScene" uid="uid://b0divemgo65sn" path="res://Elements/Gate.tscn" id="9_mvkw7"]
@@ -104,6 +104,22 @@ id = "journal"
 [node name="Sheep" parent="." instance=ExtResource("6_8a57w")]
 position = Vector2(166, 367)
 scale = Vector2(2.775, 2.775)
+
+[node name="AquaRegiaPage5" parent="." instance=ExtResource("7_4rhov")]
+position = Vector2(1292, 1608)
+id = "journalpage_aquaregia_hint4"
+
+[node name="AquaRegiaPage4" parent="." instance=ExtResource("7_4rhov")]
+position = Vector2(2312, 1108)
+id = "journalpage_aquaregia_hint3"
+
+[node name="AquaRegiaPage3" parent="." instance=ExtResource("7_4rhov")]
+position = Vector2(1156, 554)
+id = "journalpage_aquaregia_hint2"
+
+[node name="AquaRegiaPage2" parent="." instance=ExtResource("7_4rhov")]
+position = Vector2(578, 277)
+id = "journalpage_aquaregia_hint1"
 
 [node name="AquaRegiaPage" parent="." instance=ExtResource("7_4rhov")]
 position = Vector2(334, 1582)

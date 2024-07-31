@@ -21,6 +21,8 @@ func _ready():
 	_pages.append( [load("res://Menus/Journal/Page4.tscn").instantiate(), false] )
 	_pages.append( [load("res://Menus/Journal/Page5.tscn").instantiate(), false] )
 	_pages.append( [load("res://Menus/Journal/Page6.tscn").instantiate(), false] )
+	_pages.append( [load("res://Menus/Journal/Page7.tscn").instantiate(), false] )
+	_pages.append( [load("res://Menus/Journal/Page8.tscn").instantiate(), false] )
 	_update_journal(_left_page_idx)
 
 
@@ -32,6 +34,14 @@ func on_journal_page_picked_up(pagename_item_id):
 	# ItemDef id -> page index mapping
 	if pagename_item_id == "journalpage_aquaregia":
 		unlock_page(4)
+	elif pagename_item_id == "journalpage_aquaregia_hint1":
+		unlock_page(5)
+	elif pagename_item_id == "journalpage_aquaregia_hint2":
+		unlock_page(6)
+	elif pagename_item_id == "journalpage_aquaregia_hint3":
+		unlock_page(7)
+	elif pagename_item_id == "journalpage_aquaregia_hint4":
+		unlock_page(8)
 	else:
 		print("ERROR: Unkown journal page'", pagename_item_id, "' picked up")
 		return

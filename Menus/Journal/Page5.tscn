@@ -4,7 +4,7 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_du0dr"]
 
-[node name="Page4" type="Panel"]
+[node name="Page5" type="Panel"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -23,7 +23,7 @@ offset_top = -8.5
 offset_bottom = 8.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "TODO: Quicksilver"
+text = "Pseudo, the 3rd day of Aries, years lost to rain. My studies of the nameless alchemical bandit lord brings me to this strange clearing.  Its ancient stones and deep rooted trees tell stories lost to time. I hope to uncover the technique he once used to destroy the treasuries of the Heathen Kings. The lost solvent, Aqua Regia."
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2

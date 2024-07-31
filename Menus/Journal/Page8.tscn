@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://cd3svbhkdrjkj"]
+
+[ext_resource type="Theme" uid="uid://bojuikabked6y" path="res://Assets/UI/Journal/journal_theme.tres" id="1_cw615"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_du0dr"]
+
+[node name="Page8" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_cw615")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_du0dr")
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -8.5
+offset_bottom = 8.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "The missing link.  What element could fell kings, bring empires to ruin, and the rich to heel? The bandit had a penchant for irony but that base metal merely sizzled and popped in my last attempt.  I’m running out of time…
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2

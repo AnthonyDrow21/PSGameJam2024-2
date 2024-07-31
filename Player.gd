@@ -8,6 +8,8 @@ const DAMAGE = 3
 
 @onready var _animated_sprite = $AnimatedSprite2D
 @onready var _point_light_2d = $PointLight2D
+@onready var _main_spooky_sound_player = $spookySoundPlayer
+@onready var _secondary_spooky_sound_player = $spookySoundPlayer2
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -34,6 +36,11 @@ func player_pickup_item():
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	_animated_sprite.play(animations.get(current_animation))
+	_point_light_2d.light_dying.connect(_main_spooky_sound_player.on_light_dying)
+	_point_light_2d.light_revived.connect(_main_spooky_sound_player.on_light_revived)
+	_point_light_2d.light_dying.connect(_secondary_spooky_sound_player.on_light_dying)
+	_point_light_2d.light_revived.connect(_secondary_spooky_sound_player.on_light_revived)
+	
 	
 func _input(event):
 	if event.is_action_pressed("ui_charge"):
@@ -74,3 +81,4 @@ func _physics_process(delta):
 
 	_animated_sprite.play(animations.get(current_animation))
 	move_and_slide()
+
